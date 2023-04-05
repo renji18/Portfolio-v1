@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AllProjects from "./pages/AllProjects";
+import Header from "./components/Header";
+import MobileHeader from "./components/MobileHeader";
+import Footer from "./components/Footer";
+import AddNewProject from './pages/AddNewProject'
+import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
+
+  const [activeMenu, setActiveMenu] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu}/>
+      <MobileHeader/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/all-projects" element={<AllProjects />} />
+        <Route path="/project-details/:ID" element={<ProjectDetails />} />
+        <Route path="/admin" element={<AddNewProject />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
