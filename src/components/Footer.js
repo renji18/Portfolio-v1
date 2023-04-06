@@ -26,7 +26,7 @@ const Footer = () => {
   ]
 
   return (
-    <div className="bg-[#17252A] font-serif text-[#DEF2F1] text-center py-3 text-lg flex justify-between px-20">
+    <div className="bg-[#17252A] font-serif text-sm text-[#DEF2F1] text-center py-3 sm:text-lg flex lg:justify-evenly justify-between px-3 sm:px-20">
       <div>
         {leftPart.map((item) => (
           <div key={item.value} className="flex items-center gap-3 space-y-3">

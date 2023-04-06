@@ -11,7 +11,7 @@ const ProjectDetails = () => {
   console.log(imageUrls);
 
   return (
-    <div className="bg-[#3AAFA9] text-[#DEF2F1] p-5">
+    <div className="bg-[#DEF2F1] text-[#17252A] p-5">
       <div className="flex flex-col items-center sm:flex-row">
         <img
           className={`sm:w-1/2 h-full sm:h-1/2 object-cover rounded-[15px]`}
@@ -19,7 +19,7 @@ const ProjectDetails = () => {
           alt="poster"
         />
         <div className="text-center mt-10 sm:mt-0 sm:w-1/2 text-xl">
-          <p className="text-4xl mb-10 sm:mb-5 text-[#FEFFFF] underline underline-offset-[6px]">{name}</p>
+          <p className="text-4xl mb-10 sm:mb-5 underline underline-offset-[6px]">{name}</p>
           <p className="sm:mb-10 mb-5 whitespace-break-spaces">{desc}</p>
           <LinkIcon />
           <Link
@@ -32,7 +32,7 @@ const ProjectDetails = () => {
         </div>
       </div>
       <div className="mt-10 border-t border-[#2B7A78] text-center text-xl">
-        <p className="mb-5 mt-2">Gallery</p>
+        <p className="mb-5 mt-5">Gallery</p>
         <div className="sm:scale-75">
           <Carousel
             showThumbs={false}

@@ -16,8 +16,8 @@ const AllProjects = () => {
   }, []);
 
   return (
-    <div className="py-10 bg-[#3AAFA9] text-[#17252A] font-semibold">
-      <div className="flex flex-col sm:flex-row items-center gap-y-10 flex-wrap justify-evenly">
+    <div className="py-20 h-[100vh] bg-[#DEF2F1] text-[#17252A] font-semibold">
+      <div className="flex flex-col sm:flex-row items-center gap-x-40 gap-y-20 flex-wrap justify-evenly">
         {projectData.map((item) => (
           <div
             key={item[0]}
