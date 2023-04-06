@@ -29,7 +29,7 @@ const Footer = () => {
     <div className="bg-[#17252A] font-serif text-[#DEF2F1] text-center py-3 text-lg flex justify-between px-20">
       <div>
         {leftPart.map((item) => (
-          <div className="flex items-center gap-3 space-y-3">
+          <div key={item.value} className="flex items-center gap-3 space-y-3">
             {item.icon}
             <p style={{transform: 'translateY(-5px)'}}>{item.value}</p>
           </div>
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
       <div>
       {rightPart.map((item) => (
-        <Link target="_blank" to={item.link}>
+        <Link key={item.link} target="_blank" to={item.link}>
           <div className="flex cursor-pointer items-center gap-3 space-y-3">
             {item.icon}
             <p style={{transform: 'translateY(-5px)'}}>{item.title}</p>

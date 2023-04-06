@@ -22,13 +22,32 @@ const AddNewProject = () => {
   };
 
   const handleClick = async () => {
-    const { projectName, posterImage, projectDescription, githubLink, imageUrls } = formData;
+    
+    let { projectName, posterImage, projectDescription, githubLink, imageUrls } = formData;
+
     if (!projectDescription || !projectName || !githubLink || !imageUrls || !posterImage)
       return alert("Please fill all the data");
 
+    const editedPosterImage = formData.posterImage.split('/d/')[1].split('/view')[0]
+
+    let imageArray = imageUrls.split(",");
+    let editedImageArray = [];
+
+    imageArray.map(item => 
+      editedImageArray.push(item.split('/d/')[1].split('/view')[0])
+    )
+
+    const editedFormData = {
+      projectName,
+      projectDescription,
+      githubLink,
+      posterImage: editedPosterImage,
+      imageUrls: editedImageArray
+    }
+
     const res = await axios.post(
       "https://portfolio-2cf75-default-rtdb.firebaseio.com/singleProjectData.json",
-      formData
+      editedFormData
     );
 
     if (res.status === 200) {
