@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-const Header = () => {
-  const [activeMenu, setActiveMenu] = useState("");
-
+const Header = ({ activeMenu, setActiveMenu }) => {
   const ulElements = [
     { title: "Home", route: "/" },
     { title: "Browse All Projects", route: "/all-projects" },
-    { title: "Liked The Portfolio ?", route: "#" },
+    { title: "Liked The Portfolio ?", route: "/extras" },
   ];
 
   return (
     <div className="sm:flex z-[5000] text-xl sticky top-0 font-serif hidden w-[100vw] items-center justify-evenly  bg-[#17252A] text-[#DEF2F1] py-5">
       <p className="text-2xl cursor-pointer">
-        <Link onClick={() => setActiveMenu('')}  to="/">Aadarsh's Portfolio</Link>
+        <Link onClick={() => setActiveMenu("")} to="/">
+          Aadarsh's Portfolio
+        </Link>
       </p>
       <ul className="flex gap-7">
         {ulElements &&
