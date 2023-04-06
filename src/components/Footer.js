@@ -15,7 +15,7 @@ const Footer = () => {
     { icon: <BadgeIcon />, value: "Aadarsh" },
     { icon: <EmailIcon />, value: "aadarshjha1401@gmail.com" },
     { icon: <RingVolumeIcon />, value: "7600081901" },
-    { icon: <CodeIcon />, value: "Web Developer, BlockChain Developer" },
+    { icon: <CodeIcon />, value: "Web and BlockChain Developer" },
   ];
 
   const rightPart = [
@@ -26,10 +26,10 @@ const Footer = () => {
   ]
 
   return (
-    <div className="bg-[#17252A] font-serif text-sm text-[#DEF2F1] text-center py-3 sm:text-lg flex lg:justify-evenly justify-between px-3 sm:px-20">
+    <div className="bg-[#DDD0C8] border-t border-t-[#323232] dark:border-t-[#178582] font-serif text-sm text-[#323232] dark:bg-[#0A1828] dark:text-[#BFA181] text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10">
       <div>
         {leftPart.map((item) => (
-          <div key={item.value} className="flex items-center gap-3 space-y-3">
+          <div key={item.value} className="flex items-center gap-1 space-y-3">
             {item.icon}
             <p style={{transform: 'translateY(-5px)'}}>{item.value}</p>
           </div>
@@ -38,7 +38,7 @@ const Footer = () => {
       <div>
       {rightPart.map((item) => (
         <Link key={item.link} target="_blank" to={item.link}>
-          <div className="flex cursor-pointer items-center gap-3 space-y-3">
+          <div className="flex cursor-pointer items-center gap-1 space-y-3">
             {item.icon}
             <p style={{transform: 'translateY(-5px)'}}>{item.title}</p>
           </div>

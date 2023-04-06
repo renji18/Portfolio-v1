@@ -82,14 +82,14 @@ const AddNewProject = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-[#DEF2F1] py-[45px] font-serif">
+        <div className="bg-[#DDD0C8] text-[#323232] dark:text-[#BFA181] dark:bg-[#0A1828] py-[45px] font-serif">
           <div className="container lg:flex mx-auto">
             <div className="w-full hidden lg:block lg:w-1/2">
               <img src={poster} className="w-full h-full" alt="posterImage" />
             </div>
-            <div className="w-full lg:w-1/2 text-center pt-14 px-16 text-[#17252A]">
+            <div className="w-full lg:w-1/2 text-center pt-14 px-16">
               <h2 className="mb-10 text-4xl font-bold">Add New Project</h2>
-              <form className="text-lg text-[#17252A] placeholder:text-[#2B7A78] flex flex-col gap-1">
+              <form className="text-lg placeholder:text-[#2B7A78] flex flex-col gap-1">
                 <input
                   autoComplete="off"
                   onChange={(e) => fillForm(e)}
@@ -140,7 +140,7 @@ const AddNewProject = () => {
               </form>
               <button
                 onClick={handleClick}
-                className="bg-[#2B7A78] text-[#FEFFFF] text-lg my-5 px-6 py-3 rounded-3xl"
+                className="bg-[#323232b2] dark:bg-[#178582] text-[#DDD0C8] dark:text-[#0A1828] text-lg my-5 px-6 py-3 rounded-3xl"
               >
                 Create
               </button>

@@ -11,14 +11,14 @@ const ProjectItem = ({ name, posterImage, _route, imageUrls, desc, link }) => {
           state: { name, posterImage, imageUrls, desc, link },
         });
       }}
-      className="rounded-[15px] mx-4 sm:mx-0 p-5 bg-[#17252A] cursor-pointer"
+      className="rounded-[15px] mx-4 sm:mx-0 p-5 dark:bg-[#0A1828] bg-[#DDD0C8] cursor-pointer"
     >
       <img
         className={`w-full h-[200px] object-cover rounded-[15px]`}
         src={`https://drive.google.com/uc?export=view&id=${posterImage}`}
         alt="poster"
       />
-      <p className="font-semibold text-[#DEF2F1] text-center text-xl mt-4 leading-[26px] truncate">
+      <p className="font-semibold text-[#323232] dark:text-[#BFA181] text-center text-xl mt-4 leading-[26px] truncate">
         {name}
       </p>
     </div>
