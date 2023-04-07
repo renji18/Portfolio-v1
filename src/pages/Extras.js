@@ -11,14 +11,16 @@ const Extras = () => {
     "There's still a long journey ahead, but the journey is worthwhile. Stick along if you wanna know what else I'll achieve in the near future.",
   ];
   return (
-    <div className="bg-[#DDD0C8] py-5 px-10 sm:px-20 gap-10 flex lg:text-2xl text-xl leading-[40px] flex-col items-center dark:bg-[#041828] text-[#323232] dark:text-[#BFA181] font-serif">
-      <h1 className="text-4xl underline-offset-4 underline">About Me</h1>
+    <div className="bg-[#DDD0C8] py-10 px-10 sm:px-20 gap-10 flex lg:text-2xl text-xl leading-[40px] flex-col items-center dark:bg-[#041828] text-[#323232] dark:text-[#BFA181] font-serif">
+      <h1 className="text-4xl lg:mb-10 underline-offset-4 underline">
+        About Me
+      </h1>
       <div className="flex border-b border-b-[#323232] pb-5 dark:border-b-[#178582] lg:gap-10 flex-col gap-7">
         {bullshit.map((item, index) => (
           <p key={index}>{item}</p>
         ))}
       </div>
-      <h1 className="text-3xl underline-offset-4 underline">Contact</h1>
+      <h1 className="text-3xl lg:mb-10 underline-offset-4 underline">Contact</h1>
     </div>
   );
 };
