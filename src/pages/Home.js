@@ -27,13 +27,13 @@ const Home = ({ setActiveMenu }) => {
           </span>{" "}
           with great user experiences.
         </p>
-        <div className="lg:flex gap-10 lg:flex-row">
+        <div className="flex items-center flex-col gap-10 lg:flex-row">
           <button
             onClick={() => {
               setActiveMenu("Browse All Projects");
               navigate("/all-projects");
             }}
-            className="bg-[#323232b2] dark:bg-[#178582] dark:text-[#0A1828] text-xl text-[#DDD0C8] font-semibold hover:font-serif font-mono px-8 py-4 rounded-full"
+            className="bg-[#323232b2] dark:bg-[#178582] dark:text-[#0A1828] w-[160px] text-xl text-[#DDD0C8] font-semibold hover:font-serif font-mono px-8 py-4 rounded-full"
           >
             Projects
           </button>
@@ -42,7 +42,7 @@ const Home = ({ setActiveMenu }) => {
               setActiveMenu("Liked The Portfolio ?");
               navigate("/extras");
             }}
-            className="bg-[#323232b2] hover:font-serif dark:bg-[#178582] dark:text-[#0A1828] mt-10 lg:mt-0 text-xl text-[#DDD0C8] font-semibold font-mono px-8 py-4 rounded-full"
+            className="bg-[#323232b2] hover:font-serif dark:bg-[#178582] dark:text-[#0A1828] lg:mt-0 text-xl text-[#DDD0C8] font-semibold font-mono px-8 py-4 rounded-full"
           >
             Wanna Know More?
           </button>
