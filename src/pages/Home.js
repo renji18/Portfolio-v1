@@ -47,6 +47,28 @@ const Home = ({ setActiveMenu }) => {
             Wanna Know More?
           </button>
         </div>
+        <div className="flex dark:hidden lg:text-3xl justify-center text-xl items-center gap-3">
+          Stack |<i className="devicon-react-original"></i>
+          <i className="devicon-express-original"></i>
+          <i className="devicon-mongodb-plain"></i>
+          <i className="devicon-solidity-plain"></i>
+          <i className="devicon-nodejs-plain"></i>
+          <i className="devicon-redux-original"></i>
+          <i className="devicon-github-original"></i>
+          <i className="devicon-tailwindcss-plain"></i>
+          <i className="devicon-javascript-plain"></i>
+        </div>
+        <div className="dark:flex hidden lg:text-3xl justify-center text-xl items-center gap-3">
+          Stack |<i className="devicon-react-original colored"></i>
+          <i className="devicon-express-original"></i>
+          <i className="devicon-mongodb-plain colored"></i>
+          <i className="devicon-solidity-plain"></i>
+          <i className="devicon-nodejs-plain colored"></i>
+          <i className="devicon-redux-original colored"></i>
+          <i className="devicon-github-original"></i>
+          <i className="devicon-tailwindcss-plain colored"></i>
+          <i className="devicon-javascript-plain colored"></i>
+        </div>
       </div>
     </div>
   );

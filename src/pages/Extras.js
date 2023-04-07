@@ -5,8 +5,6 @@ const Extras = () => {
     <div className='bg-[#DEF2F1] h-[90vh] text-[#17252A]'>
       <section>About Me</section>
       <section>Contact</section>
-      {/* <section>Wanna Collab on a project ?</section> */}
-      {/* <section>Wanna employ me ?</section> */}
     </div>
   )
 }
