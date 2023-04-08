@@ -5,4 +5,5 @@
 body {
   overflow-x: hidden;
   font-family: serif;
+  text-transform: capitalize;
 }
