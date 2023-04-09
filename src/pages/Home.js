@@ -5,7 +5,7 @@ import hi from "../assets/hi.png";
 const Home = ({ setActiveMenu }) => {
   const navigate = useNavigate();
   return (
-    <div className="bg-[#DDD0C8] dark:bg-[#041828] px-2 py-10 lg:h-[100vh] sm:justify-evenly w-full flex-col sm:flex-row flex text-[#323232] dark:text-[#BFA181] font-serif">
+    <div className="bg-[#DDD0C8] dark:bg-[#041828] px-2 py-20 sm:justify-evenly w-full flex-col sm:flex-row flex text-[#323232] dark:text-[#BFA181] font-serif">
       <img src={hi} className="scale-75" alt="hi" />
       <div className="flex mt-10 sm:mt-0 flex-col lg:gap-20 gap-10 justify-center items-center text-center">
         <p className="sm:text-2xl lg:text-3xl text-xl font-semibold px-5 py-2 rounded-lg">
