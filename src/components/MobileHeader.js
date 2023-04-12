@@ -50,7 +50,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu }) => {
 
   return (
     <div>
-      <div className="flex border-b border-b-[#323232] dark:border-b-[#178582] sticky font-serif sm:hidden w-[100vw] items-center justify-around bg-[#DDD0C8] dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] py-5">
+      <div className="flex border-b border-b-[#323232] dark:border-b-[#178582] sticky font-serif sm:hidden w-[100vw] items-center justify-between px-6 bg-[#DDD0C8] dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] py-5">
         <p className="text-2xl cursor-pointer">
           <Link onClick={() => setActiveMenu("")} to="/">
             <img
@@ -60,7 +60,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu }) => {
             />
           </Link>
         </p>
-        <div className="flex gap-5">
+        <div className="flex items-center justify-center scale-125 gap-5">
           <div style={{ transform: "translateY(1px)" }} onClick={themeSwitch}>
             {localStorage.theme === "dark" ? (
               <DarkModeIcon />
