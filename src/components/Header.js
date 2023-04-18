@@ -125,7 +125,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
             anchorId="user-count"
             content={`Your are the ${ordinalSuffix(
               userCount
-            )} viewer of my portfolio. Thank you!!!`}
+            )} viewer. Thank you!!!`}
           />
         </div>
       </div>
