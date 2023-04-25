@@ -2,10 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import hi from "../assets/hi.png";
 
-const Home = ({ setActiveMenu }) => {
+const Home = ({ setActiveMenu, menuOpen }) => {
   const navigate = useNavigate();
   return (
-    <div className="bg-[#DDD0C8] dark:bg-[#041828] px-2 py-20 sm:justify-evenly w-full flex-col sm:flex-row flex text-[#323232] dark:text-[#BFA181] font-serif">
+    <div
+    style={{ filter: menuOpen && "blur(1px)" }} className="bg-[#0a192f] px-2 py-20 sm:justify-evenly w-full flex-col sm:flex-row flex text-[#BFA181] font-serif">
       <img src={hi} className="scale-75" alt="hi" />
       <div className="flex mt-10 sm:mt-0 flex-col lg:gap-20 gap-10 justify-center items-center text-center">
         <p className="sm:text-2xl lg:text-3xl text-xl font-semibold px-5 py-2 rounded-lg">
@@ -33,7 +34,7 @@ const Home = ({ setActiveMenu }) => {
               setActiveMenu("Browse All Projects");
               navigate("/all-projects");
             }}
-            className="bg-[#323232b2] dark:bg-[#178582] dark:text-[#0A1828] w-[160px] text-xl text-[#DDD0C8] font-semibold hover:font-serif font-mono px-8 py-4 rounded-full"
+            className="bg-[#64ffda] text-[#0a192f] w-[160px] text-xl font-semibold hover:font-serif font-mono px-8 py-4 rounded-full"
           >
             Projects
           </button>
@@ -42,23 +43,12 @@ const Home = ({ setActiveMenu }) => {
               setActiveMenu("Liked The Portfolio ?");
               navigate("/extras");
             }}
-            className="bg-[#323232b2] hover:font-serif dark:bg-[#178582] dark:text-[#0A1828] lg:mt-0 text-xl text-[#DDD0C8] font-semibold font-mono px-8 py-4 rounded-full"
+            className=" hover:font-serif bg-[#64ffda] text-[#0a192f] lg:mt-0 text-xl font-semibold font-mono px-8 py-4 rounded-full"
           >
             Wanna Know More?
           </button>
         </div>
-        <div className="flex dark:hidden lg:text-3xl justify-center text-xl items-center gap-3">
-          Stack |<i className="devicon-react-original"></i>
-          <i className="devicon-express-original"></i>
-          <i className="devicon-mongodb-plain"></i>
-          <i className="devicon-solidity-plain"></i>
-          <i className="devicon-nodejs-plain"></i>
-          <i className="devicon-redux-original"></i>
-          <i className="devicon-github-original"></i>
-          <i className="devicon-tailwindcss-plain"></i>
-          <i className="devicon-javascript-plain"></i>
-        </div>
-        <div className="dark:flex hidden lg:text-3xl justify-center text-xl items-center gap-3">
+        <div className="flex lg:text-3xl justify-center text-xl items-center gap-3">
           Stack |<i className="devicon-react-original colored"></i>
           <i className="devicon-express-original"></i>
           <i className="devicon-mongodb-plain colored"></i>

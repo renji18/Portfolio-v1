@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import { useNavigate, Link } from "react-router-dom";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 import axios from "axios";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Header = ({ activeMenu, setActiveMenu }) => {
-  const [userTheme, setUserTheme] = useState();
   const [userCount, serUserCount] = useState(0);
+  const navigate = useNavigate();
 
   const ulElements = [
     { title: "Home", route: "/" },
@@ -35,34 +32,8 @@ const Header = ({ activeMenu, setActiveMenu }) => {
         serUserCount(data.counter);
       }
     };
-    const themeCheck = () => {
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-        setUserTheme("dark");
-      } else {
-        setUserTheme("light");
-        document.documentElement.classList.remove("dark");
-      }
-    };
     userCounter();
-    themeCheck();
-  }, [userTheme, userCount]);
-
-  const themeSwitch = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setUserTheme("light");
-      return;
-    }
-    document.documentElement.classList.add("dark");
-    setUserTheme("dark");
-    localStorage.setItem("theme", "dark");
-  };
+  }, [userCount]);
 
   const ordinalSuffix = (i) => {
     var j = i % 10,
@@ -80,7 +51,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   };
 
   return (
-    <div className="sm:flex text-xl border-b border-b-[#323232] dark:border-b-[#178582] sticky font-serif hidden w-[100vw] items-center justify-around bg-[#DDD0C8] dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] py-5">
+    <div className="sm:flex text-xl border-b border-b-[#64ffda] sticky font-serif hidden w-[100vw] items-center justify-around bg-[#0a192f] text-[#BFA181] py-5">
       <p className="text-2xl cursor-pointer">
         <Link onClick={() => setActiveMenu("")} to="/">
           <img src={Watashi} alt="watashi" className="h-10 w-10 rounded-full" />
@@ -93,32 +64,20 @@ const Header = ({ activeMenu, setActiveMenu }) => {
               key={item.route}
               onClick={() => {
                 setActiveMenu(item.title);
+                navigate(item.route);
               }}
               className="cursor-pointer relative"
+              style={{ color: activeMenu === item.title && "#64ffda" }}
             >
-              <Link to={item.route}>{item.title}</Link>
-              <div
-                className={`${
-                  activeMenu ? "text-center mt-[-6px] mb-[-22px]" : ""
-                }`}
-              >
-                {activeMenu === item.title ? <KeyboardArrowUpIcon /> : null}
-              </div>
+              <span>{item.title}</span>
             </li>
           ))}
       </ul>
       <div className="flex justify-center gap-5 items-center">
         <div
-          className="cursor-pointer"
-          style={{ transform: "translateY(-1px)" }}
-          onClick={themeSwitch}
-        >
-          {localStorage.theme === "dark" ? <DarkModeIcon /> : <LightModeIcon />}
-        </div>
-        <div
           data-tooltip-id="user-count"
           id="user-count"
-          className="bg-[#DDD0C8] rounded-full px-2 pb-2 dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] border-[#323232] dark:border-[#178582] cursor-pointer border"
+          className="rounded-full px-2 pb-2 bg-[#0a192f] text-[#BFA181] border-[#64ffda] cursor-pointer border"
         >
           {userCount}
           <Tooltip

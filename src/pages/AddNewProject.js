@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import poster from "../assets/wallpaperflare.com_wallpaper.jpg";
 
-const AddNewProject = () => {
+const AddNewProject = ({ menuOpen }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -78,7 +78,10 @@ const AddNewProject = () => {
   };
 
   return (
-    <div className="bg-[#DDD0C8] text-[#323232] dark:text-[#BFA181] dark:bg-[#0A1828] py-[45px] font-serif">
+    <div
+      style={{ filter: menuOpen && "blur(1px)" }}
+      className="text-[#BFA181] bg-[#0a192f] py-[45px] font-serif"
+    >
       <div className="container lg:flex mx-auto">
         <div className="w-full hidden lg:block lg:w-1/2">
           <img src={poster} className="w-full h-full" alt="posterImage" />
@@ -91,7 +94,7 @@ const AddNewProject = () => {
               onChange={(e) => fillForm(e)}
               type="text"
               value={formData.projectName}
-              className="outline-[#2B7A78] rounded-md py-1 w-full px-2"
+              className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
               name="projectName"
               placeholder="Input Project Name"
             />
@@ -101,7 +104,7 @@ const AddNewProject = () => {
               placeholder="Enter Project Description"
               name="projectDescription"
               value={formData.projectDescription}
-              className="outline-[#2B7A78] rounded-md resize-none py-1 w-full px-2"
+                className="outline-none bg-[#0a192f] text-[#64ffda] border border-[#BFA181] placeholder:text-[#BFA181] rounded-md resize-none py-1 w-full px-2"
               id="desc"
               cols="30"
               rows="10"
@@ -110,7 +113,7 @@ const AddNewProject = () => {
               autoComplete="off"
               type="text"
               onChange={(e) => fillForm(e)}
-              className="outline-[#2B7A78] rounded-md py-1 w-full px-2"
+                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
               name="githubLink"
               placeholder="Github Link"
               value={formData.githubLink}
@@ -121,7 +124,7 @@ const AddNewProject = () => {
               onChange={(e) => fillForm(e)}
               value={formData.posterImage}
               name="posterImage"
-              className="outline-[#2B7A78] rounded-md py-1 w-full px-2"
+                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
               placeholder="Poster Image"
             />
             <input
@@ -130,13 +133,13 @@ const AddNewProject = () => {
               onChange={(e) => fillForm(e)}
               value={formData.imageUrls}
               name="imageUrls"
-              className="outline-[#2B7A78] rounded-md py-1 w-full px-2"
+                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
               placeholder="Additional Image Urls (with comma)"
             />
           </form>
           <button
             onClick={handleClick}
-            className="bg-[#323232b2] hover:font-mono dark:bg-[#178582] text-[#DDD0C8] dark:text-[#0A1828] text-lg my-5 px-6 py-3 rounded-3xl"
+            className="hover:font-mono font-semibold bg-[#64ffda] text-[#0a192f] text-lg my-5 px-6 py-3 rounded-3xl"
           >
             Create
           </button>

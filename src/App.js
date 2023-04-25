@@ -11,17 +11,23 @@ import Extras from "./pages/Extras";
 
 function App() {
   const [activeMenu, setActiveMenu] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <Router>
       <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-      <MobileHeader activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      <MobileHeader
+        setMenuOpen={setMenuOpen}
+        activeMenu={activeMenu}
+        menuOpen={menuOpen}
+        setActiveMenu={setActiveMenu}
+      />
       <Routes>
-        <Route path="/" element={<Home setActiveMenu={setActiveMenu} />} />
-        <Route path="/all-projects" element={<AllProjects />} />
-        <Route path="/project-details/:ID" element={<ProjectDetails />} />
-        <Route path="/admin" element={<AddNewProject />} />
-        <Route path="/extras" element={<Extras />} />
+        <Route path="/" element={<Home setActiveMenu={setActiveMenu} menuOpen={menuOpen} />} />
+        <Route path="/all-projects" element={<AllProjects menuOpen={menuOpen} />} />
+        <Route path="/project-details/:ID" element={<ProjectDetails menuOpen={menuOpen} />} />
+        <Route path="/admin" element={<AddNewProject menuOpen={menuOpen} />} />
+        <Route path="/extras" element={<Extras menuOpen={menuOpen} />} />
       </Routes>
       <Footer />
     </Router>

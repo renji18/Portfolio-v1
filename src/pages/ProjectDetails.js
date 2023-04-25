@@ -5,7 +5,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import { Carousel } from "react-responsive-carousel";
 import loader from "../assets/loader.svg";
 
-const ProjectDetails = () => {
+const ProjectDetails = ({ menuOpen }) => {
   const { state } = useLocation();
   const { name, posterImage, imageUrls, desc, link } = state;
   const [loading, setLoading] = useState(true);
@@ -15,9 +15,12 @@ const ProjectDetails = () => {
   }, 2000);
 
   return (
-    <div className="bg-[#DDD0C8] text-[#323232] dark:text-[#BFA181] dark:bg-[#0A1828] p-5">
+    <div
+      style={{ filter: menuOpen && "blur(1px)" }}
+      className="text-[#BFA181] bg-[#0a192f] p-5"
+    >
       <div
-        className={`fixed inset-0 scale-150 z-10 h-screen dark:bg-[#0A1828] bg-[#DDD0C8] flex items-center ${
+        className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${
           loading ? "" : "hidden"
         } justify-center flex-col`}
       >
@@ -44,13 +47,13 @@ const ProjectDetails = () => {
           <Link
             target="_blank"
             to={link}
-            className="cursor-pointer dark:text-[#178582] text-[#5566c2ea] sm:text-xl text-sm ml-2"
+            className="cursor-pointer text-[#64ffda]  sm:text-xl text-sm ml-2"
           >
             {link}
           </Link>
         </div>
       </div>
-      <div className="mt-10 border-t dark:border-[#178582] border-[#323232] text-center text-xl">
+      <div className="mt-10 border-t border-[#64ffda] text-center text-xl">
         <p className="mb-5 mt-5">Gallery</p>
         <div className="sm:scale-75">
           <Carousel

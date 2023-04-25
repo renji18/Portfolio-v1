@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-const MobileHeader = ({ activeMenu, setActiveMenu }) => {
+const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const navigate = useNavigate();
-  const [userTheme, setUserTheme] = useState();
-
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const ulElements = [
     { title: "Home", route: "/" },
@@ -19,38 +13,12 @@ const MobileHeader = ({ activeMenu, setActiveMenu }) => {
     { title: "Liked The Portfolio ?", route: "/extras" },
   ];
 
-  useEffect(() => {
-    const themeCheck = () => {
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-        setUserTheme("dark");
-      } else {
-        setUserTheme("light");
-        document.documentElement.classList.remove("dark");
-      }
-    };
-    themeCheck();
-  }, [userTheme]);
-
-  const themeSwitch = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setUserTheme("light");
-      return;
-    }
-    document.documentElement.classList.add("dark");
-    setUserTheme("dark");
-    localStorage.setItem("theme", "dark");
-  };
-
   return (
     <div>
-      <div className="flex border-b border-b-[#323232] dark:border-b-[#178582] sticky font-serif sm:hidden w-[100vw] items-center justify-between px-6 bg-[#DDD0C8] dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] py-5">
+      <div
+        style={{ filter: menuOpen && "blur(1px)" }}
+        className="flex border-b border-b-[#64ffda] sticky font-serif sm:hidden w-[100vw] items-center justify-between px-6 bg-[#0a192f] text-[#BFA181] py-5"
+      >
         <p className="text-2xl cursor-pointer">
           <Link onClick={() => setActiveMenu("")} to="/">
             <img
@@ -61,13 +29,6 @@ const MobileHeader = ({ activeMenu, setActiveMenu }) => {
           </Link>
         </p>
         <div className="flex items-center justify-center scale-125 gap-5">
-          <div style={{ transform: "translateY(1px)" }} onClick={themeSwitch}>
-            {localStorage.theme === "dark" ? (
-              <DarkModeIcon />
-            ) : (
-              <LightModeIcon />
-            )}
-          </div>
           {menuOpen ? (
             <button onClick={() => setMenuOpen(false)}>
               <MenuOpenIcon />
@@ -79,26 +40,44 @@ const MobileHeader = ({ activeMenu, setActiveMenu }) => {
           )}
         </div>
       </div>
-      {menuOpen ? (
-        <div className="font-serif border-b border-b-[#323232] dark:border-b-[#178582] bg-[#DDD0C8] dark:bg-[#0A1828] text-[#323232] dark:text-[#BFA181] transition-all h-[100%]">
-          <ul className=" flex flex-col py-2 px-5">
-            {ulElements.map((item) => (
+      {menuOpen && (
+        <div className="fixed text-white z-[5000] w-[80%] bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
+          <div className="absolute text-[#64ffda] scale-150 top-7 right-7">
+            {menuOpen ? (
+              <button onClick={() => setMenuOpen(false)}>
+                <MenuOpenIcon />
+              </button>
+            ) : (
+              <button onClick={() => setMenuOpen(true)}>
+                <MenuIcon />
+              </button>
+            )}
+          </div>
+          <ul className="flex flex-col gap-10">
+            {ulElements.map((item, index) => (
               <li
                 key={item.route}
+                className="text-[#64ffda]"
                 onClick={() => {
                   setActiveMenu(item.title);
                   setMenuOpen(false);
                   navigate(item.route);
                 }}
-                className="cursor-pointer py-2 border-t border-[#323232] dark:border-[#178582]"
               >
-                {activeMenu === item.title ? <KeyboardArrowRightIcon /> : null}
-                <span>{item.title}</span>
+                0{index + 1}. <span className="text-white">{item.title}</span>
               </li>
             ))}
+            <Link
+              target="_blank"
+              to="https://drive.google.com/file/d/1FVly6kaIn1ou2-TH3rca2ArGb1dw31Kz/view?usp=sharing"
+            >
+              <div className="text-center py-4 rounded-lg border-[#64ffda] border">
+                Resume
+              </div>
+            </Link>
           </ul>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

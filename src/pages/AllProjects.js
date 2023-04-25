@@ -3,7 +3,7 @@ import axios from "axios";
 import ProjectItem from "../components/ProjectItem";
 import loader from "../assets/loader.svg";
 
-const AllProjects = () => {
+const AllProjects = ({ menuOpen }) => {
   const [projectData, setProjectData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,8 +22,13 @@ const AllProjects = () => {
   }, 2000);
 
   return (
-    <div className="py-20 px-5 h-full bg-[#DDD0C8] dark:bg-[#0A1828] dark:text-[#BFA181] text-[#323232] font-semibold">
-      <div className={`fixed inset-0 scale-150 z-10 h-screen dark:bg-[#0A1828] bg-[#DDD0C8] flex items-center ${loading ? '' : 'hidden'} justify-center flex-col`}>
+    <div
+    style={{ filter: menuOpen && "blur(1px)" }} className="py-20 px-5 h-full bg-[#0a192f] text-[#BFA181]  font-semibold">
+      <div
+        className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${
+          loading ? "" : "hidden"
+        } justify-center flex-col`}
+      >
         <img
           src={loader}
           alt="loader"
@@ -34,7 +39,7 @@ const AllProjects = () => {
         {projectData.map((item) => (
           <div
             key={item[0]}
-            className="dark:shadow-[#2B7A78] shadow-[#ec9a9a] rounded-[15px] shadow-2xl"
+            className="shadow-[#2B7A78] rounded-[15px] shadow-2xl"
           >
             <ProjectItem
               _route={item[0]}
