@@ -21,15 +21,9 @@ function App() {
         setActiveMenu={setActiveMenu}
       />
       <Routes>
-        <Route
-          path="/"
-          element={<Home setActiveMenu={setActiveMenu} menuOpen={menuOpen} />}
-        />
-        <Route
-          path="/project-details/:ID"
-          element={<ProjectDetails menuOpen={menuOpen} />}
-        />
-        <Route path="/admin" element={<AddNewProject menuOpen={menuOpen} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/project-details/:ID" element={<ProjectDetails />} />
+        <Route path="/admin" element={<AddNewProject />} />
       </Routes>
       <Footer />
     </Router>

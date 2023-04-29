@@ -4,7 +4,7 @@ import hi from "../assets/hi.png";
 
 const Hero = () => {
   return (
-    <div className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex">
+    <div id="hero" className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex">
       <div className="flex customContainer px-7 sm:px-20 lg:px-0  flex-col gap-8">
         <p className="text-[#64ffda] text-lg">Hi, my name is</p>
         <div className="font-semibold lg:text-6xl md:text-5xl text-3xl sm:text-4xl">
@@ -31,17 +31,6 @@ const Hero = () => {
             <img src={hi} className="w-[228px] h-[228px]" alt="hi" />
           </div>
         </div>
-        {/* <div className="flex lg:text-3xl justify-center text-xl items-center gap-3">
-          Stack |<i className="devicon-react-original colored"></i>
-          <i className="devicon-express-original"></i>
-          <i className="devicon-mongodb-plain colored"></i>
-          <i className="devicon-solidity-plain"></i>
-          <i className="devicon-nodejs-plain colored"></i>
-          <i className="devicon-redux-original colored"></i>
-          <i className="devicon-github-original"></i>
-          <i className="devicon-tailwindcss-plain colored"></i>
-          <i className="devicon-javascript-plain colored"></i>
-        </div> */}
       </div>
     </div>
   );

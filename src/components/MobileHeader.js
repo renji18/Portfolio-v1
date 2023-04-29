@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
@@ -41,23 +42,17 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
       className="sticky transition-all bg-[#0a192f] top-0 bg-clip-padding bg-opacity-80 ease-in-out duration-300"
     >
       <div className="flex md:hidden w-[100vw] items-center justify-between px-6 py-5 blur-backdrop-filter">
-        <p className="cursor-pointer">
+        <ScrollLink smooth={true} duration={500} to="hero">
           <Link to="/">
-            <a
-              onClick={() => {
-                setActiveMenu("");
-                document.documentElement.scrollTo(0, 0);
-              }}
-              href="mobileHeader"
-            >
+            <p className="cursor-pointer">
               <img
                 src={Watashi}
                 alt="watashi"
                 className="h-10 w-10 rounded-full"
               />
-            </a>
+            </p>
           </Link>
-        </p>
+        </ScrollLink>
         <div className="flex right-6 items-center justify-center scale-125 gap-5">
           {menuOpen ? (
             <button onClick={() => setMenuOpen(false)}>

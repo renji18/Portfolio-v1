@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 import "react-tooltip/dist/react-tooltip.css";
 
 const Header = ({ activeMenu, setActiveMenu }) => {
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const ulElements = [
-    { title: "About", route: "#aboutMe" },
-    { title: "Experience", route: "#experience" },
-    { title: "Work", route: "#projects" },
-    { title: "Contact", route: "#contact" },
+    { title: "About", route: "aboutMe" },
+    { title: "Experience", route: "experience" },
+    { title: "Work", route: "projects" },
+    { title: "Contact", route: "contact" },
   ];
 
   useEffect(() => {
@@ -38,31 +39,50 @@ const Header = ({ activeMenu, setActiveMenu }) => {
       id="header"
       className="md:flex transition-all text-sm sticky top-0 hidden  items-center bg-[#0a192f] bg-clip-padding blur-backdrop-filter bg-opacity-80 ease-in-out duration-300 justify-between px-10 pt-7 pb-5"
     >
-      <p className="text-2xl cursor-pointer">
-        <Link onClick={() => setActiveMenu("")} to="/">
-          <img src={Watashi} alt="watashi" className="h-10 w-10 rounded-full" />
+      <ScrollLink smooth={true} duration={500} to="hero">
+        <Link to="/">
+          <p className="text-2xl cursor-pointer">
+            <img
+              src={Watashi}
+              alt="watashi"
+              className="h-10 w-10 rounded-full"
+            />
+          </p>
         </Link>
-      </p>
+      </ScrollLink>
       <div className="flex justify-center gap-5 lg:gap-10 items-center">
         <ul className="flex lg:gap-10 gap-7">
           {ulElements &&
             ulElements.map((item, index) => (
-              <li
+              <ScrollLink
                 key={index}
-                onClick={() => {
-                  setActiveMenu(item.title);
-                }}
-                className="cursor-pointer relative"
-                style={{ color: activeMenu === item.title && "#64ffda" }}
+                smooth={true}
+                duration={500}
+                to={item.route}
               >
-                {" "}
-                <a href={item.route}>
-                  <span>
-                    <span className="text-[#64ffda] mr-1">0{index + 1}. </span>{" "}
-                    {item.title}
-                  </span>
-                </a>
-              </li>
+                <Link to="/">
+                  <li
+                    onClick={() => {
+                      setActiveMenu(item.title);
+                      console.log(activeMenu);
+                      console.log(item.title);
+                    }}
+                    className="cursor-pointer relative"
+                    style={{ color: activeMenu === item.title && "#64ffda" }}
+                  >
+                    {" "}
+                    <span>
+                      <span
+                        style={{ fontFamily: "Fira" }}
+                        className="text-[#64ffda] mr-1"
+                      >
+                        0{index + 1}.{" "}
+                      </span>{" "}
+                      {item.title}
+                    </span>
+                  </li>
+                </Link>
+              </ScrollLink>
             ))}
         </ul>
         <Link

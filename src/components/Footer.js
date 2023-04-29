@@ -41,9 +41,7 @@ const Footer = () => {
   ];
 
   return (
-    <div
-      className=" border-t border-t-[#64ffda] text-sm text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10"
-    >
+    <div className="text-sm text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10">
       <div>
         {leftPart.map((item) => (
           <div key={item.value} className="flex items-center gap-1 space-y-3">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import poster from "../assets/wallpaperflare.com_wallpaper.jpg";
 
-const AddNewProject = ({ menuOpen }) => {
+const AddNewProject = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -79,7 +79,6 @@ const AddNewProject = ({ menuOpen }) => {
 
   return (
     <div
-      style={{ filter: menuOpen && "blur(1px)" }}
       className="py-[45px]"
     >
       <div className="container lg:flex mx-auto">
