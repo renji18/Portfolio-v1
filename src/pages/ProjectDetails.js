@@ -5,7 +5,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import { Carousel } from "react-responsive-carousel";
 import loader from "../assets/loader.svg";
 
-const ProjectDetails = ({ menuOpen }) => {
+const ProjectDetails = () => {
   const { state } = useLocation();
   const { name, posterImage, imageUrls, desc, link } = state;
   const [loading, setLoading] = useState(true);
@@ -16,8 +16,7 @@ const ProjectDetails = ({ menuOpen }) => {
 
   return (
     <div
-      style={{ filter: menuOpen && "blur(1px)" }}
-      className="text-[#BFA181] bg-[#0a192f] p-5"
+      className="p-5"
     >
       <div
         className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${

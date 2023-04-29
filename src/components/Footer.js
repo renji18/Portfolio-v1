@@ -9,7 +9,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { Link } from "react-router-dom";
 
-const Footer = ({ menuOpen }) => {
+const Footer = () => {
   const leftPart = [
     { icon: <BadgeIcon />, value: "Aadarsh" },
     { icon: <EmailIcon />, value: "aadarshjha1401@gmail.com" },
@@ -42,8 +42,7 @@ const Footer = ({ menuOpen }) => {
 
   return (
     <div
-      style={{ filter: menuOpen && "blur(1px)" }}
-      className=" border-t border-t-[#64ffda] font-serif text-sm bg-[#0a192f] text-[#BFA181] text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10"
+      className=" border-t border-t-[#64ffda] text-sm text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10"
     >
       <div>
         {leftPart.map((item) => (

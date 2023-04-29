@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AllProjects from "./pages/AllProjects";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
 import Footer from "./components/Footer";
 import AddNewProject from "./pages/AddNewProject";
 import ProjectDetails from "./pages/ProjectDetails";
-import Extras from "./pages/Extras";
 
 function App() {
   const [activeMenu, setActiveMenu] = useState("");
@@ -23,11 +21,15 @@ function App() {
         setActiveMenu={setActiveMenu}
       />
       <Routes>
-        <Route path="/" element={<Home setActiveMenu={setActiveMenu} menuOpen={menuOpen} />} />
-        <Route path="/all-projects" element={<AllProjects menuOpen={menuOpen} />} />
-        <Route path="/project-details/:ID" element={<ProjectDetails menuOpen={menuOpen} />} />
+        <Route
+          path="/"
+          element={<Home setActiveMenu={setActiveMenu} menuOpen={menuOpen} />}
+        />
+        <Route
+          path="/project-details/:ID"
+          element={<ProjectDetails menuOpen={menuOpen} />}
+        />
         <Route path="/admin" element={<AddNewProject menuOpen={menuOpen} />} />
-        <Route path="/extras" element={<Extras menuOpen={menuOpen} />} />
       </Routes>
       <Footer />
     </Router>

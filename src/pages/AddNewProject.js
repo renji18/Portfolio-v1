@@ -80,7 +80,7 @@ const AddNewProject = ({ menuOpen }) => {
   return (
     <div
       style={{ filter: menuOpen && "blur(1px)" }}
-      className="text-[#BFA181] bg-[#0a192f] py-[45px] font-serif"
+      className="py-[45px]"
     >
       <div className="container lg:flex mx-auto">
         <div className="w-full hidden lg:block lg:w-1/2">
@@ -88,13 +88,13 @@ const AddNewProject = ({ menuOpen }) => {
         </div>
         <div className="w-full lg:w-1/2 text-center pt-14 px-16">
           <h2 className="mb-10 text-4xl font-bold">Add New Project</h2>
-          <form className="text-lg placeholder:text-[#2B7A78] flex flex-col gap-2">
+          <form className="text-lg flex flex-col gap-2">
             <input
               autoComplete="off"
               onChange={(e) => fillForm(e)}
               type="text"
               value={formData.projectName}
-              className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
+              className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
               name="projectName"
               placeholder="Input Project Name"
             />
@@ -104,7 +104,7 @@ const AddNewProject = ({ menuOpen }) => {
               placeholder="Enter Project Description"
               name="projectDescription"
               value={formData.projectDescription}
-                className="outline-none bg-[#0a192f] text-[#64ffda] border border-[#BFA181] placeholder:text-[#BFA181] rounded-md resize-none py-1 w-full px-2"
+                className="outline-none bg-[#0a192f] border border-[#8892b0] placeholder:text-[#8892b0] rounded-md resize-none py-1 w-full px-2"
               id="desc"
               cols="30"
               rows="10"
@@ -113,7 +113,7 @@ const AddNewProject = ({ menuOpen }) => {
               autoComplete="off"
               type="text"
               onChange={(e) => fillForm(e)}
-                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
+                className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
               name="githubLink"
               placeholder="Github Link"
               value={formData.githubLink}
@@ -124,7 +124,7 @@ const AddNewProject = ({ menuOpen }) => {
               onChange={(e) => fillForm(e)}
               value={formData.posterImage}
               name="posterImage"
-                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
+                className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
               placeholder="Poster Image"
             />
             <input
@@ -133,7 +133,7 @@ const AddNewProject = ({ menuOpen }) => {
               onChange={(e) => fillForm(e)}
               value={formData.imageUrls}
               name="imageUrls"
-                className="text-[#64ffda] outline-none bg-[#0a192f] placeholder:text-[#BFA181] border border-[#BFA181] rounded-md py-1 w-full px-2"
+                className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
               placeholder="Additional Image Urls (with comma)"
             />
           </form>

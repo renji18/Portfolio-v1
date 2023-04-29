@@ -2,8 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 1rem;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #64ffda;
+  border: 3px solid transparent;
+  border-radius: 7px;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0a192f;
+}
+
 body {
   overflow-x: hidden;
-  font-family: serif;
-  text-transform: capitalize;
+  background-color: #0a192f;
+  color: #ccd6f6;
+  scroll-behavior: smooth;
+  font-family: 'Fira Mono', monospace;
+}
+
+.customContainer {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .customContainer {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .customContainer {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .customContainer {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1280px) {
+  .customContainer {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1536px) {
+  .customContainer {
+    max-width: 1024px;
+  }
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProjectItem from "../components/ProjectItem";
+import ProjectItem from "./ProjectItem";
 import loader from "../assets/loader.svg";
 
-const AllProjects = ({ menuOpen }) => {
+const AllProjects = () => {
   const [projectData, setProjectData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,8 +22,7 @@ const AllProjects = ({ menuOpen }) => {
   }, 2000);
 
   return (
-    <div
-    style={{ filter: menuOpen && "blur(1px)" }} className="py-20 px-5 h-full bg-[#0a192f] text-[#BFA181]  font-semibold">
+    <div id="projects"className="py-20 px-5 h-full font-semibold">
       <div
         className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${
           loading ? "" : "hidden"
