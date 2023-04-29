@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 
 const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
+  const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const ulElements = [
     { title: "About", route: "#aboutMe" },
     { title: "Experience", route: "#experience" },
@@ -12,12 +13,43 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
     { title: "Contact", route: "#contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollData((prevState) => {
+        return {
+          y: window.scrollY,
+          lastY: prevState.y,
+        };
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (scrollData.y > 100 && scrollData.lastY < scrollData.y) {
+      setMenuOpen(false);
+      document.getElementById("mobileHeader").classList.add("hideNav");
+    } else {
+      document.getElementById("mobileHeader").classList.remove("hideNav");
+    }
+  }, [scrollData, setMenuOpen]);
+
   return (
-    <div id="mobileHeader">
-      <div className="flex md:hidden w-[100vw] items-center justify-between px-6 bg-transparent pt-5">
+    <div
+      id="mobileHeader"
+      className="sticky transition-all bg-[#0a192f] top-0 bg-clip-padding bg-opacity-80 ease-in-out duration-300"
+    >
+      <div className="flex md:hidden w-[100vw] items-center justify-between px-6 py-5 blur-backdrop-filter">
         <p className="cursor-pointer">
           <Link to="/">
-            <a onClick={() => setActiveMenu("")} href="#mobileHeader">
+            <a
+              onClick={() => {
+                setActiveMenu("");
+                document.documentElement.scrollTo(0, 0);
+              }}
+              href="mobileHeader"
+            >
               <img
                 src={Watashi}
                 alt="watashi"
@@ -26,7 +58,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
             </a>
           </Link>
         </p>
-        <div className="flex right-6 fixed items-center justify-center scale-125 gap-5">
+        <div className="flex right-6 items-center justify-center scale-125 gap-5">
           {menuOpen ? (
             <button onClick={() => setMenuOpen(false)}>
               <MenuOpenIcon />

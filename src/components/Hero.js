@@ -4,7 +4,7 @@ import hi from "../assets/hi.png";
 
 const Hero = () => {
   return (
-    <div className="h-[100vh] mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex">
+    <div className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex">
       <div className="flex customContainer px-7 sm:px-20 lg:px-0  flex-col gap-8">
         <p className="text-[#64ffda] text-lg">Hi, my name is</p>
         <div className="font-semibold lg:text-6xl md:text-5xl text-3xl sm:text-4xl">
