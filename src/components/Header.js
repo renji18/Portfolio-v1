@@ -64,8 +64,6 @@ const Header = ({ activeMenu, setActiveMenu }) => {
                   <li
                     onClick={() => {
                       setActiveMenu(item.title);
-                      console.log(activeMenu);
-                      console.log(item.title);
                     }}
                     className="cursor-pointer relative"
                     style={{ color: activeMenu === item.title && "#64ffda" }}
@@ -89,7 +87,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
           target="_blank"
           to="https://drive.google.com/file/d/1FVly6kaIn1ou2-TH3rca2ArGb1dw31Kz/view?usp=sharing"
         >
-          <div className="text-center text-[#64ffda] py-2 px-3 rounded-md border-[#64ffda] border">
+          <div className="text-center text-[#64ffda] py-2 px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
             Resume
           </div>
         </Link>

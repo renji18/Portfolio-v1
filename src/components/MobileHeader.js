@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
@@ -7,6 +7,8 @@ import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 
 const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
+  const navigate = useNavigate();
+  const location = useLocation();
   const ulElements = [
     { title: "About", route: "#aboutMe" },
     { title: "Experience", route: "#experience" },
@@ -66,7 +68,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
         </div>
       </div>
       {menuOpen && (
-        <div className="fixed z-[5000] w-full h-full bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
+        <div className="fixed z-[50000000] w-full h-full bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
           <div className="absolute z-50 text-[#64ffda] scale-150 top-7 right-7">
             {menuOpen ? (
               <button onClick={() => setMenuOpen(false)}>
@@ -85,6 +87,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                   key={index}
                   className="text-[#64ffda]"
                   onClick={() => {
+                    if (location.pathname !== "/") return navigate("/");
                     setActiveMenu(item.title);
                     setMenuOpen(false);
                   }}
@@ -103,7 +106,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               target="_blank"
               to="https://drive.google.com/file/d/1FVly6kaIn1ou2-TH3rca2ArGb1dw31Kz/view?usp=sharing"
             >
-              <div className="text-center py-4 rounded-lg border-[#64ffda] border">
+              <div className="text-center py-4 rounded-lg border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
                 Resume
               </div>
             </Link>

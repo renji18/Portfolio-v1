@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import LinkIcon from "@mui/icons-material/Link";
 import { Carousel } from "react-responsive-carousel";
 import loader from "../assets/loader.svg";
 
@@ -15,9 +14,7 @@ const ProjectDetails = () => {
   }, 2000);
 
   return (
-    <div
-      className="p-5"
-    >
+    <div className="p-5">
       <div
         className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${
           loading ? "" : "hidden"
@@ -42,13 +39,14 @@ const ProjectDetails = () => {
           <p className="sm:mb-5 mb-7 leading-[40px] whitespace-break-spaces">
             {desc}
           </p>
-          <LinkIcon />
           <Link
             target="_blank"
             to={link}
             className="cursor-pointer text-[#64ffda]  sm:text-xl text-sm ml-2"
           >
-            {link}
+            <button className="border border-[#64ffda] py-2 px-3 rounded-md hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
+              Github
+            </button>
           </Link>
         </div>
       </div>

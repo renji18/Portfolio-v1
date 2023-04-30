@@ -8,9 +8,9 @@ const AboutMe = () => {
       className="py-10 justify-center md:h-[100vh] flex flex-col items-center"
     >
       <div className="customContainer px-7 sm:px-20 lg:px-0">
-        <div className="flex gap-2 text-lg font-semibold lg:text-3xl sm:text-2xl">
+        <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
           <span className="text-[#64ffda]">01.</span>
-          <h1 className="lg:mb-10 w-full sm:w-4/12">About Me</h1>
+          <h1 className="lg:mb-10 w-full ">About Me</h1>
         </div>
         <div className="flex justify-center items-center">
           <div className="hidden lg:block">
