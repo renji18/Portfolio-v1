@@ -38,7 +38,6 @@ export async function handleUploadImage(file, location) {
 // update user data
 export async function handleSaveUserData() {
   try {
-
     const data = {
       hero: {
         anyong: "Hi, my name is",
@@ -55,7 +54,7 @@ export async function handleSaveUserData() {
         boasting: [
           "Hey there, My name is Aadarsh Jha and I enjoy creating things that live on the internet. My interest in <Web Development> started back when I was in my second semester of college",
           "I started off with Web Development because it has a lot of projects to work with. I created tons of site with various different technologies to try from.",
-          "After almost 1 and a half year of creating web pages, I started studying <Blockchain Development>",
+          "After almost 1 and a half year of creating web pages, I started studying <span className='text-[#64ffda]'>Blockchain Development</span>",
           "Creating contracts in Solidity, testing them out using ethers and hardhat, and deploying them via thirdweb are just some of the stuff I've experimented with.",
           "There's still a long journey ahead, but the journey is worthwhile. Stick along if you wanna know what else I'll achieve in the near future.",
           "Here are a few technologies I've been working with recently:",
@@ -178,12 +177,12 @@ export async function handleSaveUserData() {
 }
 
 // get user data
-export async function handleGetPortfolioData(dispatch){
+export async function handleGetPortfolioData(dispatch) {
   try {
     const docRef = doc(firestore, "portfolioData", "renji_riverstone");
-    const docSnap = await getDoc(docRef)
-    dispatch(getPortfolioDataAction(docSnap.data()))
+    const docSnap = await getDoc(docRef);
+    dispatch(getPortfolioDataAction(docSnap.data()));
   } catch (error) {
-    console.log(error, 'handleGetPortfolioData');
+    console.log(error, "handleGetPortfolioData");
   }
 }

@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 import "react-tooltip/dist/react-tooltip.css";
 
 const Header = ({ activeMenu, setActiveMenu }) => {
+  const [resumeLink, setResumeLink] = useState(null);
+
+  const { portfolio } = useSelector((state) => state?.portfolioData);
+
+  useEffect(() => {
+    setResumeLink(portfolio?.footer?.right[3].link);
+  }, [portfolio]);
+
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const ulElements = [
     { title: "About", route: "aboutMe" },
@@ -83,10 +92,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
               </ScrollLink>
             ))}
         </ul>
-        <Link
-          target="_blank"
-          to="https://drive.google.com/file/d/1FVly6kaIn1ou2-TH3rca2ArGb1dw31Kz/view?usp=sharing"
-        >
+        <Link target="_blank" to={resumeLink}>
           <div className="text-center text-[#64ffda] py-2 px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
             Resume
           </div>

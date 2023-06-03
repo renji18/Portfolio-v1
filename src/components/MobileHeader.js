@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -6,6 +7,14 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 
 const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
+  const [resumeLink, setResumeLink] = useState(null);
+
+  const { portfolio } = useSelector((state) => state?.portfolioData);
+
+  useEffect(() => {
+    setResumeLink(portfolio?.footer?.right[3].link);
+  }, [portfolio]);
+
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const navigate = useNavigate();
   const location = useLocation();
@@ -102,10 +111,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                 </li>
               </a>
             ))}
-            <Link
-              target="_blank"
-              to="https://drive.google.com/file/d/1FVly6kaIn1ou2-TH3rca2ArGb1dw31Kz/view?usp=sharing"
-            >
+            <Link target="_blank" to={resumeLink}>
               <div className="text-center py-4 rounded-lg border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
                 Resume
               </div>

@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import hi from "../assets/hi.png";
 
 const Hero = () => {
+  const [heroData, setHeroData] = useState(null);
+  const { portfolio } = useSelector((state) => state?.portfolioData);
+
+  useEffect(() => {
+    setHeroData(portfolio?.hero);
+  }, [portfolio]);
+
   return (
-    <div id="hero" className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex">
+    <div
+      id="hero"
+      className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex"
+    >
       <div className="flex customContainer px-7 sm:px-20 lg:px-0  flex-col gap-8">
-        <p className="text-[#64ffda] text-lg">Hi, my name is</p>
+        <p className="text-[#64ffda] text-lg">{heroData?.anyong}</p>
         <div className="font-semibold lg:text-6xl md:text-5xl text-3xl sm:text-4xl">
-          <p>Aadarsh Jha.</p>
-          <p className="mt-5 text-[#8892b0]">I build things for the web.</p>
+          <p>{heroData?.name}</p>
+          <p className="mt-5 text-[#8892b0]">{heroData?.tag}.</p>
         </div>
         <div className="md:flex">
           <div className="text-[#8892b0] justify-center flex flex-col md:w-1/2 leading-7 lg:leading-9">
             <p>
-              I'm a Full-Stack Blockchain Developer specializing in building
-              (and occasionally designing) exceptional digital experiences.
-              Currently, I'm focused on building accessible, human-centered
-              website at{" "}
+              {heroData?.intro}
               <Link
                 target="_blank"
-                to="https://mykinderpass.com/"
+                to={heroData?.company?.link}
                 className="text-[#64ffda] hover:underline cursor-pointer"
               >
-                Kinderpass.
+                {`\t${heroData?.company?.name}`}
               </Link>
             </p>
           </div>
