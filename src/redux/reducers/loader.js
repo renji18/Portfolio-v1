@@ -1,11 +1,11 @@
 // import * as actionType from "../actions/actionTypes";
 
-const initialState = {
-  siteLoader: true,
-  networkReloadStatus: null,
-};
+// const initialState = {
+  // siteLoader: true,
+  // networkReloadStatus: null,
+// };
 
-const loader = (state = initialState, { type, data }) => {
+// const loader = (state = initialState, { type, data }) => {
   // switch (type) {
   //   case actionType.MAIN_LOADER:
   //     return {
@@ -20,6 +20,6 @@ const loader = (state = initialState, { type, data }) => {
   //   default:
   //     return state;
   // }
-};
+// };
 
-export default loader;
+// export default loader;

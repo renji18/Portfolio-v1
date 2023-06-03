@@ -1,18 +1,21 @@
 import { put } from "redux-saga/effects";
+import * as services from './services.js'
 
-export function* registerLoginSignOutSagaCall(action) {
+// update Portfolio Data
+export function* updatePortfolioSagaCall(action){
   try {
-    // yield put(actionCreators.toggleFirebaseLoader(true));
-    // yield registerLoginSignOutSagaAsyncHandler(
-    //   action.method,
-    //   action.profile,
-    //   action.email,
-    //   action.password,
-    //   action.dispatch
-    // );
-    // yield put(actionCreators.toggleFirebaseLoader(false));
+    yield services.updatePortfolioSagaAsyncHandler(action)
   } catch (error) {
-    // yield put(actionCreators.toggleFirebaseLoader(false));
-    // toast.error(error);
+    console.log(error, 'updatePortfolioSagaCall');
   }
 }
+
+// get Portfolio Data
+// export function* getPortfolioDataSagaCall(action){
+//   try {
+//     console.log(action);
+//     yield services.getPortfolioDataSagaAsyncHandler(action.dispatch)
+//   } catch (error) {
+//     console.log(error, 'getPortfolioDataSagaCall');
+//   }
+// }

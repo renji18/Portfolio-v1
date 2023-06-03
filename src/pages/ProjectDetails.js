@@ -1,31 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import loader from "../assets/loader.svg";
 
 const ProjectDetails = () => {
   const { state } = useLocation();
   const { name, posterImage, imageUrls, desc, link } = state;
-  const [loading, setLoading] = useState(true);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
 
   return (
     <div className="p-5">
-      <div
-        className={`fixed inset-0 scale-150 z-10 h-screen bg-[#0a192f] flex items-center ${
-          loading ? "" : "hidden"
-        } justify-center flex-col`}
-      >
-        <img
-          src={loader}
-          alt="loader"
-          className="w-[100px] h-[100px] object-contain"
-        />
-      </div>
       <div className="flex flex-col items-center sm:flex-row">
         <img
           className={`sm:w-1/2 h-full sm:h-1/2 object-cover rounded-[15px]`}

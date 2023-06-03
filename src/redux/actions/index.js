@@ -1,3 +1,3 @@
-export {} from './userActions'
+export { updatePortfolioAction, getPortfolioDataAction } from "./userActions";
 
-export {} from './miscellaneous' 
+export {} from "./miscellaneous";
