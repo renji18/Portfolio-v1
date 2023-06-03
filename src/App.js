@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
 import Footer from "./components/Footer";
-import AddNewProject from "./pages/AddNewProject";
+import UserDetails from "./pages/UserDetails.js";
 import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project-details/:ID" element={<ProjectDetails />} />
-        <Route path="/admin" element={<AddNewProject />} />
+        <Route path="/admin" element={<UserDetails />} />
       </Routes>
       <Footer />
     </Router>
