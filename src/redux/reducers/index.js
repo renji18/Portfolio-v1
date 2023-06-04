@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 import { portfolioData } from "./userReducer";
-// import loader from "./loader";
+import loader from "./loader";
 
-export default combineReducers({ portfolioData });
+export default combineReducers({ portfolioData, loader });

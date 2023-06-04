@@ -1,3 +1,3 @@
 export { updatePortfolioAction, getPortfolioDataAction } from "./userActions";
 
-export {} from "./miscellaneous";
+export { toggleMainLoader } from "./miscellaneous";

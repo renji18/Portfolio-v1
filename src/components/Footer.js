@@ -36,7 +36,7 @@ const Footer = ({ menuOpen }) => {
   return (
     <>
       {!menuOpen && (
-        <div className="text-sm text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10">
+        <div className="text-sm text-center py-3 flex justify-between px-3 sm:px-5 lg:px-10">
           <div>
             {leftPart?.map((item, index) => (
               <div

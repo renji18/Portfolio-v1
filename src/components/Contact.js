@@ -38,7 +38,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="py-10 px-10 sm:px-20 gap-10 flex lg:text-2xl text-xl leading-[40px] flex-col items-center"
+      className="pb-10 pt-[88px] px-10 sm:px-20 gap-10 flex lg:text-2xl text-xl leading-[40px] flex-col items-center"
     >
       <h1 className="text-3xl underline-offset-4 underline">
         Share your thoughts

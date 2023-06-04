@@ -12,9 +12,7 @@ import {
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import imageCompression from "browser-image-compression";
 import { firestore, storage } from "./config";
-import hi from "../assets/hi.png";
-import respect from "../assets/respect.png";
-import { getPortfolioDataAction } from "../redux/actions";
+import { getPortfolioDataAction, toggleMainLoader } from "../redux/actions";
 
 // returns url for a provided image file
 export async function handleUploadImage(file, location) {
@@ -182,6 +180,7 @@ export async function handleGetPortfolioData(dispatch) {
     const docRef = doc(firestore, "portfolioData", "renji_riverstone");
     const docSnap = await getDoc(docRef);
     dispatch(getPortfolioDataAction(docSnap.data()));
+    dispatch(toggleMainLoader(false));
   } catch (error) {
     console.log(error, "handleGetPortfolioData");
   }

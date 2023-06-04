@@ -14,7 +14,7 @@ const AboutMe = () => {
   return (
     <div
       id="aboutMe"
-      className="py-10 justify-center  flex flex-col items-center"
+      className="py-10 justify-center pt-[88px] flex flex-col items-center"
     >
       <div className="customContainer px-7 sm:px-20 lg:px-0">
         <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
