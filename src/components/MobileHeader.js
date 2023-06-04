@@ -50,7 +50,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   return (
     <div
       id="mobileHeader"
-      className="sticky transition-all bg-[#0a192f] top-0 bg-clip-padding bg-opacity-80 ease-in-out duration-300"
+      className="sticky transition-all top-0 bg-clip-padding bg-opacity-80 ease-in-out duration-300"
     >
       <div className="flex md:hidden w-[100vw] items-center justify-between px-6 py-5 blur-backdrop-filter">
         <ScrollLink smooth={true} duration={500} to="hero">
@@ -77,8 +77,8 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
         </div>
       </div>
       {menuOpen && (
-        <div className="fixed z-[5000000] w-full h-full bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
-          <div className="absolute z-50 text-[#64ffda] scale-150 top-7 right-7">
+        <div className="fixed z-[5000000] w-full h-full bg-black top-0 grid justify-center items-center right-0 bottom-0">
+          <div className="absolute z-50 text-[#00ffc3] scale-150 top-7 right-7">
             {menuOpen ? (
               <button onClick={() => setMenuOpen(false)}>
                 <MenuOpenIcon />
@@ -89,12 +89,12 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               </button>
             )}
           </div>
-          <ul className="flex z-[5000000] bg-[#0a192f] flex-col gap-10">
+          <ul className="flex z-[5000000] flex-col gap-10">
             {ulElements.map((item, index) => (
               <a key={index} href={item.route}>
                 <li
                   key={index}
-                  className="text-[#64ffda] z-[5000000]"
+                  className="z-[5000000] text-white"
                   onClick={() => {
                     if (location.pathname !== "/") return navigate("/");
                     setActiveMenu(item.title);
@@ -103,8 +103,8 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                 >
                   0{index + 1}.{" "}
                   <span
-                    style={{ color: activeMenu === item.title && "#64ffda" }}
-                    className="text-white z-[5000000]"
+                    style={{ color: activeMenu === item.title && "white" }}
+                    className="z-[5000000] text-[#00ffc3]"
                   >
                     {item.title}
                   </span>
@@ -112,7 +112,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               </a>
             ))}
             <Link target="_blank" to={resumeLink}>
-              <div className="text-center z-[5000000] py-4 rounded-lg border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
+              <div className="text-center z-[5000000] py-4 rounded-lg border-[#00ffc3] text-white border">
                 Resume
               </div>
             </Link>

@@ -17,21 +17,21 @@ const Hero = () => {
       className="h-[100vh] mt-[-65px] md:mt-[-40px] justify-center items-center sm:justify-evenly w-full flex-col sm:flex-row flex"
     >
       <div className="flex customContainer px-7 sm:px-20 lg:px-0  flex-col gap-8">
-        <p className="text-[#64ffda] text-lg">{heroData?.anyong}</p>
+        <p className="text-lg">{heroData?.anyong}</p>
         <div className="font-semibold lg:text-6xl md:text-5xl text-3xl sm:text-4xl">
-          <p>{heroData?.name}</p>
-          <p className="mt-5 text-[#8892b0]">{heroData?.tag}.</p>
+          <p className="text-white">{heroData?.name}</p>
+          <p className="mt-5 text-[#b4bacc]">{heroData?.tag}.</p>
         </div>
         <div className="md:flex">
-          <div className="text-[#8892b0] justify-center flex flex-col md:w-1/2 leading-7 lg:leading-9">
+          <div className="text-[#b4bacc] justify-center flex flex-col md:w-1/2 leading-7 lg:leading-9">
             <p>
               {heroData?.intro}
               <Link
                 target="_blank"
-                to={heroData?.company?.link}
-                className="text-[#64ffda] hover:underline cursor-pointer"
+                to={heroData?.companyLink}
+                className="text-[#00ffc3] hover:underline cursor-pointer"
               >
-                {`\t${heroData?.company?.name}`}
+                {`\t${heroData?.companyName}`}
               </Link>
             </p>
           </div>

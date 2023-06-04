@@ -54,7 +54,7 @@ export async function handleSaveUserData() {
         boasting: [
           "Hey there, My name is Aadarsh Jha and I enjoy creating things that live on the internet. My interest in <Web Development> started back when I was in my second semester of college",
           "I started off with Web Development because it has a lot of projects to work with. I created tons of site with various different technologies to try from.",
-          "After almost 1 and a half year of creating web pages, I started studying <span className='text-[#64ffda]'>Blockchain Development</span>",
+          "After almost 1 and a half year of creating web pages, I started studying <span className='text-[#00ffc3]'>Blockchain Development</span>",
           "Creating contracts in Solidity, testing them out using ethers and hardhat, and deploying them via thirdweb are just some of the stuff I've experimented with.",
           "There's still a long journey ahead, but the journey is worthwhile. Stick along if you wanna know what else I'll achieve in the near future.",
           "Here are a few technologies I've been working with recently:",

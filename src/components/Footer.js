@@ -38,13 +38,18 @@ const Footer = ({ menuOpen }) => {
       {!menuOpen && (
         <div className="text-sm text-center py-3 sm:text-lg flex justify-between px-3 sm:px-5 lg:px-10">
           <div>
-            {leftPart?.map((item) => (
+            {leftPart?.map((item, index) => (
               <div
-                key={item.value}
+                key={index}
                 className="flex items-center gap-1 space-y-3"
               >
                 {item?.icon}
-                <p style={{ transform: "translateY(-5px)" }}>{item?.value}</p>
+                <p
+                  className="text-[#b4bacc]"
+                  style={{ transform: "translateY(-5px)" }}
+                >
+                  {item?.value}
+                </p>
               </div>
             ))}
           </div>
@@ -53,7 +58,12 @@ const Footer = ({ menuOpen }) => {
               <Link key={index} target="_black" to={r.link}>
                 <div className="flex cursor-pointer items-center gap-1 space-y-3">
                   {rightPart[index]}
-                  <p style={{ transform: "translateY(-5px)" }}>{r.title}</p>
+                  <p
+                    className="text-[#b4bacc]"
+                    style={{ transform: "translateY(-5px)" }}
+                  >
+                    {r.title}
+                  </p>
                 </div>
               </Link>
             ))}

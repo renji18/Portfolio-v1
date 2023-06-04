@@ -20,10 +20,10 @@ const EditPortfolioDetails = () => {
     setProjectsData(portfolio?.projects);
     setFooterData(portfolio?.footer);
     if (portfolio?.aboutMe) {
-      // style='color: #64ffda'
+      // style='color: #00ffc3'
       let manipulatedBoasting = [];
       portfolio?.aboutMe?.boasting?.map((b) => {
-        let res1 = b.replace(/<span style='color: #64ffda'>/g, "<");
+        let res1 = b.replace(/<span style='color: #00ffc3'>/g, "<");
         let res2 = res1.replace(/<\/span>/g, ">");
         manipulatedBoasting.push(res2);
         return manipulatedBoasting;
@@ -88,7 +88,7 @@ const EditPortfolioDetails = () => {
         <div className="flex gap-10 items-center">
           <p className="text-3xl mb-3">#Intoduction Section</p>
           <button
-            className="text-center text-[#64ffda] py-[7px] mb-[5px] px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif"
+            className="text-center text-[#00ffc3] py-[7px] mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
             onClick={() => {
               setShowHeroData(!showHeroData);
               setShowAboutMeData(false);
@@ -113,12 +113,12 @@ const EditPortfolioDetails = () => {
                   ref={heroTextareaRef}
                   value={heroData?.intro}
                   style={{ minHeight: MIN_TEXTAREA_HEIGHT }}
-                  className="w-full resize-none ml-[32px] text-[#64ffda] bg-[#0a192f] underline outline-none"
+                  className="w-full resize-none ml-[32px] text-[#00ffc3] bg-black underline outline-none"
                 />
               ) : (
                 <input
                   type="text"
-                  className="w-full ml-[32px] text-[#64ffda] bg-[#0a192f] underline outline-none"
+                  className="w-full ml-[32px] text-[#00ffc3] bg-black underline outline-none"
                   name={item?.key}
                   onChange={(e) =>
                     handleDataChange("hero", e.target.name, e.target.value)
@@ -143,7 +143,7 @@ const EditPortfolioDetails = () => {
         <div className="flex gap-10 items-center">
           <p className="text-3xl mb-3">#About Me Section</p>
           <button
-            className="text-center text-[#64ffda] py-[7px] mb-[5px] px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif"
+            className="text-center text-[#00ffc3] py-[7px] mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
             onClick={() => {
               setShowAboutMeData(!showAboutMeData);
               setShowHeroData(false);
@@ -167,7 +167,7 @@ const EditPortfolioDetails = () => {
                   onChange={(e) =>
                     handleDataChange("boasting", index, e.target.value)
                   }
-                  className="w-full max-h-40 mt-5 pr-10 ml-[32px] text-[#64ffda] bg-[#0a192f] underline outline-none"
+                  className="w-full max-h-40 mt-5 pr-10 ml-[32px] text-[#00ffc3] bg-black underline outline-none"
                 />
               );
             })}
@@ -192,7 +192,7 @@ const EditPortfolioDetails = () => {
               />
               <button
                 onClick={handleAddSkill}
-                className="text-center text-[#64ffda] py-1 mb-[5px] px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif"
+                className="text-center text-[#00ffc3] py-1 mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
               >
                 Add
               </button>

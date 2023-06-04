@@ -55,7 +55,7 @@ const Contact = () => {
                 type="text"
                 value={thoughts.name}
                 onChange={(e) => settingThoughts(e)}
-                className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
+                className="outline-none bg-black placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
                 name="name"
                 placeholder="Your Name:"
               />
@@ -65,7 +65,7 @@ const Contact = () => {
                 name="text"
                 value={thoughts.text}
                 onChange={(e) => settingThoughts(e)}
-                className="outline-none bg-[#0a192f] border border-[#8892b0] placeholder:text-[#8892b0] rounded-md resize-none py-1 w-full px-2"
+                className="outline-none bg-black border border-[#8892b0] placeholder:text-[#8892b0] rounded-md resize-none py-1 w-full px-2"
                 id="desc"
                 cols="30"
                 rows="10"
@@ -75,14 +75,14 @@ const Contact = () => {
                 type="text"
                 value={thoughts.email}
                 onChange={(e) => settingThoughts(e)}
-                className="outline-none bg-[#0a192f] placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
+                className="outline-none bg-black placeholder:text-[#8892b0] border border-[#8892b0] rounded-md py-1 w-full px-2"
                 name="email"
                 placeholder="Email"
               />
             </form>
             <button
               onClick={handleButtonClick}
-              className=" hover:font-mono font-semibold bg-[#64ffda] text-[#0a192f] text-lg my-5 px-6 py-3 rounded-3xl"
+              className=" hover:font-mono font-semibold bg-[#00ffc3] text-black text-lg my-5 px-6 py-3 rounded-3xl"
             >
               Send
             </button>

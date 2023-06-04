@@ -9,7 +9,7 @@ const AllProjectsImagePart = ({ item, menuOpen }) => {
   return (
     <div
       key={item[0]}
-      className={`shadow-[#64ffda] cursor-pointer relative md:w-3/5 rounded-[15px] shadow z-[${
+      className={`shadow-[#00ffc3] cursor-pointer relative md:w-3/5 rounded-[15px] shadow z-[${
         menuOpen.menuOpen ? -1 : 0
       }]`}
       onMouseEnter={() => setHovered(true)}
@@ -31,7 +31,7 @@ const AllProjectsImagePart = ({ item, menuOpen }) => {
         posterImage={item[1].posterImage}
       />
       {hovered && (
-        <div className="absolute bg-clip-padding blur-backdrop-filter bg-opacity-60 font-semibold  text-[#0a192f] bg-[#64ffda] h-full w-full top-0 rounded-[15px] flex justify-center items-center ">
+        <div className="absolute bg-clip-padding blur-backdrop-filter bg-opacity-60 font-semibold  text-black bg-[#FB2576] h-full w-full top-0 rounded-[15px] flex justify-center items-center ">
           <p>Select to view more about the project</p>
         </div>
       )}

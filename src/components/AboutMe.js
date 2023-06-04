@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import respect from "../assets/respect.png";
 
 const AboutMe = () => {
-
   const [aboutData, setAboutData] = useState(null);
 
   const { portfolio } = useSelector((state) => state?.portfolioData);
@@ -15,32 +14,34 @@ const AboutMe = () => {
   return (
     <div
       id="aboutMe"
-      className="py-10 justify-center md:h-[100vh] flex flex-col items-center"
+      className="py-10 justify-center  flex flex-col items-center"
     >
       <div className="customContainer px-7 sm:px-20 lg:px-0">
         <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
-          <span className="text-[#64ffda]">01.</span>
+          <span className="text-[#00ffc3]">01.</span>
           <h1 className="lg:mb-10 w-full ">About Me</h1>
         </div>
         <div className="flex justify-center items-center">
           <div className="hidden lg:block">
             <img src={respect} alt="about me" />
           </div>
-          <div className="flex lg:text-end text-[#8892b0] pb-10 mt-10 lg:gap-10 flex-col gap-5">
-          {aboutData?.boasting?.map(p => (
-            <p dangerouslySetInnerHTML={{__html: p}} className="leading-7">
-              {/* {p} */}
-            </p>
-          ))}
+          <div className="flex lg:text-end text-[#b4bacc] pb-10 mt-10 lg:gap-10 flex-col gap-5">
+            {aboutData?.boasting?.map((p, index) => (
+              <p
+                key={index}
+                dangerouslySetInnerHTML={{ __html: p }}
+                className="leading-7"
+              ></p>
+            ))}
           </div>
         </div>
         <div className="flex lg:justify-end text-lg md:text-2xl flex-col sm:flex-row items-center gap-2">
-          <p className="text-[#64ffda]">Stack</p>
+          <p className="text-[#00ffc3]">Stack</p>
           <p className="hidden sm:block">|</p>
           <div className="flex items-center gap-3">
-          {aboutData?.skills?.map(i => (
-            <i className={i}></i>
-          ))}
+            {aboutData?.skills?.map((i, index) => (
+              <i key={index} className={i}></i>
+            ))}
           </div>
         </div>
       </div>

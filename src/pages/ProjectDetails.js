@@ -19,21 +19,21 @@ const ProjectDetails = ({ menuOpen }) => {
           <p className="text-4xl mb-10 sm:mb-5 underline underline-offset-[6px]">
             {name}
           </p>
-          <p className="sm:mb-5 mb-7 leading-[40px] whitespace-break-spaces">
+          <p className="sm:mb-5 mb-7 leading-[40px] whitespace-break-spaces text-[#b4bacc]">
             {desc}
           </p>
           <Link
             target="_blank"
             to={link}
-            className="cursor-pointer text-[#64ffda]  sm:text-xl text-sm ml-2"
+            className="cursor-pointer text-[#00ffc3]  sm:text-xl text-sm ml-2"
           >
-            <button className="border border-[#64ffda] py-2 px-3 rounded-md hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
+            <button className="border border-[#00ffc3] py-2 px-3 rounded-md hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif">
               Github
             </button>
           </Link>
         </div>
       </div>
-      <div className="mt-10 border-t border-[#64ffda] text-center text-xl">
+      <div className="mt-10 border-t border-[#00ffc3] text-center text-xl">
         <p className="mb-5 mt-5">Gallery</p>
         {!menuOpen && (
           <div className="sm:scale-75">

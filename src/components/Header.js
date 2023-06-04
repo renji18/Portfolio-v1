@@ -46,7 +46,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   return (
     <div
       id="header"
-      className="md:flex transition-all text-sm sticky top-0 hidden  items-center bg-[#0a192f] bg-clip-padding blur-backdrop-filter bg-opacity-80 ease-in-out duration-300 justify-between px-10 pt-7 pb-5"
+      className="md:flex transition-all text-sm sticky top-0 hidden  items-center bg-clip-padding blur-backdrop-filter bg-opacity-80 ease-in-out duration-300 justify-between px-10 pt-7 pb-5"
     >
       <ScrollLink smooth={true} duration={500} to="hero">
         <Link to="/">
@@ -75,13 +75,13 @@ const Header = ({ activeMenu, setActiveMenu }) => {
                       setActiveMenu(item.title);
                     }}
                     className="cursor-pointer relative"
-                    style={{ color: activeMenu === item.title && "#64ffda" }}
+                    style={{ color: activeMenu === item.title && "white" }}
                   >
                     {" "}
                     <span>
                       <span
                         style={{ fontFamily: "Fira" }}
-                        className="text-[#64ffda] mr-1"
+                        className="text-white mr-1"
                       >
                         0{index + 1}.{" "}
                       </span>{" "}
@@ -93,7 +93,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
             ))}
         </ul>
         <Link target="_blank" to={resumeLink}>
-          <div className="text-center text-[#64ffda] py-2 px-3 rounded-md border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
+          <div className="text-center text-white py-2 px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif">
             Resume
           </div>
         </Link>

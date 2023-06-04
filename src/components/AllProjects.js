@@ -23,7 +23,7 @@ const AllProjects = (menuOpen) => {
       <div className="flex flex-col py-10 items-center justify-evenly">
         <div className="customContainer px-7 sm:px-20 lg:px-0">
           <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
-            <span className="text-[#64ffda]">03.</span>
+            <span className="text-[#00ffc3]">03.</span>
             <h1 className="mb-10 w-full">Stuff That I've Created</h1>
           </div>
           {projectData.map((item, index) => (
