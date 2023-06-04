@@ -31,8 +31,8 @@ const AllProjectsImagePart = ({ item, menuOpen }) => {
         posterImage={item[1].posterImage}
       />
       {hovered && (
-        <div className="absolute bg-clip-padding blur-backdrop-filter bg-opacity-60 font-semibold  text-black bg-[#FB2576] h-full w-full top-0 rounded-[15px] flex justify-center items-center ">
-          <p>Select to view more about the project</p>
+        <div className="absolute bg-clip-padding blur-backdrop-filter bg-opacity-60 text-4xl italic font-extrabold text-black bg-transparent h-full w-full top-0 rounded-[15px] flex justify-center items-center ">
+          <p className="text-[#00ffc3]">View More</p>
         </div>
       )}
     </div>
