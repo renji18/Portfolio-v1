@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import Watashi from "../assets/IMG-20230215-WA0007.jpg";
+// import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 import "react-tooltip/dist/react-tooltip.css";
 
 const Header = ({ activeMenu, setActiveMenu }) => {
   const navigate = useNavigate();
   const [resumeLink, setResumeLink] = useState(null);
+  const [profile, setProfile] = useState(null)
 
   const { portfolio } = useSelector((state) => state?.portfolioData);
 
   useEffect(() => {
     setResumeLink(portfolio?.footer?.right[3].link);
+    setProfile(portfolio?.profilePic)
   }, [portfolio]);
 
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
@@ -54,7 +56,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
         <Link to="/">
           <p className="text-2xl cursor-pointer">
             <img
-              src={Watashi}
+              src={profile}
               alt="watashi"
               className="h-10 w-10 rounded-full"
             />

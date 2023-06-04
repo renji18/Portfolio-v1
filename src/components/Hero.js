@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import hi from "../assets/hi.png";
 
 const Hero = () => {
   const [heroData, setHeroData] = useState(null);
+  const [hi, setHi] = useState(null)
   const { portfolio } = useSelector((state) => state?.portfolioData);
 
   useEffect(() => {
     setHeroData(portfolio?.hero);
+    setHi(portfolio?.hero?.hiLink)
   }, [portfolio]);
 
   return (

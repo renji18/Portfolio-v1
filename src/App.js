@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
 import ProjectDetails from "./pages/ProjectDetails";
 import Loader from "./components/Loader";
+import Editor from "./components/editPortfolio/Editor";
 
 function App() {
   const [activeMenu, setActiveMenu] = useState("");
@@ -34,6 +35,7 @@ function App() {
           element={<ProjectDetails menuOpen={menuOpen} />}
         />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/:editor" element={<Editor />} />
       </Routes>
       <Footer menuOpen={menuOpen} />
     </Router>

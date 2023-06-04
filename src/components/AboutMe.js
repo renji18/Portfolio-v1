@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import respect from "../assets/respect.png";
 
 const AboutMe = () => {
   const [aboutData, setAboutData] = useState(null);
+  const [respect, setRespect] = useState(null)
 
   const { portfolio } = useSelector((state) => state?.portfolioData);
 
   useEffect(() => {
     setAboutData(portfolio?.aboutMe);
+    setRespect(portfolio?.aboutMe?.respectLink)
   }, [portfolio]);
 
   return (

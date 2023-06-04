@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { handleGetPortfolioData } from "./utility";
+import { updatePortfolioAction } from "../redux/actions";
 
 // firebase context
 const FirebaseContext = createContext(null);
@@ -15,8 +16,13 @@ const FirebaseProvider = (props) => {
     handleGetPortfolioData(dispatch);
   }, [dispatch]);
 
+  // edit profile data
+  const handleSaveUserImage = async(data) => {
+    dispatch(updatePortfolioAction(data))
+  }
+
   return (
-    <FirebaseContext.Provider value={{}}>
+    <FirebaseContext.Provider value={{handleSaveUserImage}}>
       {props.children}
     </FirebaseContext.Provider>
   );

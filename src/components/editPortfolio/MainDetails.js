@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-const EditPortfolioDetails = () => {
+const MainDetails = () => {
   const { portfolio } = useSelector((state) => state.portfolioData);
 
   // individual datas from portfolio
@@ -80,27 +80,21 @@ const EditPortfolioDetails = () => {
   }, [heroData]);
 
   return (
-    <div className="px-5 flex flex-col gap-10 py-5">
-      <p className="underline underline-offset-[5px] text-4xl text-center">
-        Edit The Portfolio
-      </p>
-      <div id="introSection">
-        <div className="flex gap-10 items-center">
-          <p className="text-3xl mb-3">#Intoduction Section</p>
-          <button
-            className="text-center text-[#00ffc3] py-[7px] mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
-            onClick={() => {
-              setShowHeroData(!showHeroData);
-              setShowAboutMeData(false);
-            }}
-          >
-            {!showHeroData ? "Show" : "Hide"}
-          </button>
-        </div>
-        {showHeroData &&
-          heroArray?.map((item, index) => (
-            <div className="mb-7 flex flex-col" id={item?.key} key={index}>
-              <label className="w-full text-xl" htmlFor={item?.title}>
+    <>
+      <div className="flex flex-col gap-10 py-5">
+        <p className="underline text-[#d2dcf9] underline-offset-[5px] text-2xl md:text-4xl text-center">
+          Edit The Portfolio
+        </p>
+        <div id="introSection">
+          <p className="text-xl md:text-3xl text-[#d2dcf9] mb-3">
+            #Intoduction Section
+          </p>
+          {heroArray?.map((item, index) => (
+            <div className=" mb-7 flex flex-col" id={item?.key} key={index}>
+              <label
+                className="w-full text-lg md:text-xl"
+                htmlFor={item?.title}
+              >
                 {`-> ${item?.title}`}:
               </label>
               {item?.title === "Intro" ? (
@@ -113,12 +107,12 @@ const EditPortfolioDetails = () => {
                   ref={heroTextareaRef}
                   value={heroData?.intro}
                   style={{ minHeight: MIN_TEXTAREA_HEIGHT }}
-                  className="w-full resize-none ml-[32px] text-[#00ffc3] bg-black underline outline-none"
+                  className="w-full text-sm md:text-base resize-none pl-[32px] text-[#FB2576] bg-black underline outline-none"
                 />
               ) : (
                 <input
                   type="text"
-                  className="w-full ml-[32px] text-[#00ffc3] bg-black underline outline-none"
+                  className="w-full pl-[32px] text-[#FB2576] bg-black underline outline-none text-sm md:text-base"
                   name={item?.key}
                   onChange={(e) =>
                     handleDataChange("hero", e.target.name, e.target.value)
@@ -138,74 +132,64 @@ const EditPortfolioDetails = () => {
               )}
             </div>
           ))}
-      </div>
-      <div id="aboutMeSection">
-        <div className="flex gap-10 items-center">
-          <p className="text-3xl mb-3">#About Me Section</p>
-          <button
-            className="text-center text-[#00ffc3] py-[7px] mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
-            onClick={() => {
-              setShowAboutMeData(!showAboutMeData);
-              setShowHeroData(false);
-            }}
-          >
-            {!showAboutMeData ? "Show" : "Hide"}
-          </button>
         </div>
-        {showAboutMeData && (
-          <div className="mb-7 flex flex-col">
-            <label
-              className="w-full text-xl"
-              htmlFor="boasting"
-            >{`-> Boast about yourself`}</label>
-            <p className="mt-3 ml-[32px] text-amber-400">{`Put words to be highlighted in < >`}</p>
-            {aboutMeData?.boasting?.map((b, index) => {
-              return (
-                <textarea
-                  key={index}
-                  value={b}
-                  onChange={(e) =>
-                    handleDataChange("boasting", index, e.target.value)
-                  }
-                  className="w-full max-h-40 mt-5 pr-10 ml-[32px] text-[#00ffc3] bg-black underline outline-none"
+        <div id="aboutMeSection">
+          <p className="text-xl md:text-3xl text-[#d2dcf9] mb-3">
+            #About Me Section
+          </p>
+          {
+            <div className=" mb-7 flex flex-col">
+              <label
+                className="w-full text-lg md:text-xl"
+                htmlFor="boasting"
+              >{`-> Boast about yourself`}</label>
+              <p className="mt-3 pl-[32px] text-sm md:text-base text-amber-400">{`Put words to be highlighted in < >`}</p>
+              {aboutMeData?.boasting?.map((b, index) => {
+                return (
+                  <textarea
+                    key={index}
+                    value={b}
+                    onChange={(e) =>
+                      handleDataChange("boasting", index, e.target.value)
+                    }
+                    className="md:w-full w-max max-h-40 mt-5 pr-10 pl-[32px] text-[#FB2576] bg-black underline outline-none text-sm md:text-base"
+                  />
+                );
+              })}
+              <label
+                className="w-full text-lg md:text-xl"
+                htmlFor="skills"
+              >{`-> My skills`}</label>
+              <div className="flex mt-5 md:pl-[32px] text-lg md:text-2xl flex-col sm:flex-row items-center gap-2">
+                <div className="flex text-[#FB2576] items-center gap-3">
+                  {aboutMeData?.skills?.map((s) => (
+                    <i className={s}></i>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row text-[#FB2576] items-center gap-5 my-5 px-[32px] text-sm md:text-base">
+                <p title="">Add More ?</p>
+                <input
+                  placeholder="Go to devicon and paste the className"
+                  id="skillAddingInput"
+                  type="text"
+                  className="w-1/2 py-1 px-1"
                 />
-              );
-            })}
-            <label
-              className="w-full text-xl"
-              htmlFor="skills"
-            >{`-> My skills`}</label>
-            <div className="flex mt-5 ml-[32px] text-lg md:text-2xl flex-col sm:flex-row items-center gap-2">
-              <div className="flex items-center gap-3">
-                {aboutMeData?.skills?.map((s) => (
-                  <i className={s}></i>
-                ))}
+                <button
+                  onClick={handleAddSkill}
+                  className="text-center text-[#FB2576] py-1 mb-[5px] px-3 rounded-md border-[#FB2576] border hover:bg-[#FB2576] hover:text-black hover:font-semibold hover:font-serif"
+                >
+                  Add
+                </button>
               </div>
             </div>
-            <div className="flex  items-center gap-5 my-5 ml-[32px]">
-              <p title="">Add More ?</p>
-              <input
-                placeholder="Go to devicon and paste the className"
-                id="skillAddingInput"
-                type="text"
-                className="w-1/2 py-1 px-1"
-              />
-              <button
-                onClick={handleAddSkill}
-                className="text-center text-[#00ffc3] py-1 mb-[5px] px-3 rounded-md border-[#00ffc3] border hover:bg-[#00ffc3] hover:text-black hover:font-semibold hover:font-serif"
-              >
-                Add
-              </button>
-            </div>
-          </div>
-        )}
+          }
+        </div>
       </div>
-      <div id="projectsSection"></div>
-      <div id="footerDetailsSection"></div>
-    </div>
+    </>
   );
 };
 
-export default EditPortfolioDetails;
+export default MainDetails;
 
 // firebase(devicon-firebase-plain colored), python(devicon-pyton-plain), c++(devicon-cplusplus-plain colored)

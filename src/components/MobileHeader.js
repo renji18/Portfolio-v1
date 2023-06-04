@@ -4,18 +4,20 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import Watashi from "../assets/IMG-20230215-WA0007.jpg";
+// import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 
 const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const [resumeLink, setResumeLink] = useState(null);
+  const [profile, setProfile] = useState(null)
 
   const { portfolio } = useSelector((state) => state?.portfolioData);
 
   useEffect(() => {
     setResumeLink(portfolio?.footer?.right[3].link);
+    setProfile(portfolio?.profilePic)
   }, [portfolio]);
 
-  const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
+  // const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const navigate = useNavigate();
   const location = useLocation();
   const ulElements = [
@@ -57,7 +59,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
           <Link to="/">
             <p className="cursor-pointer">
               <img
-                src={Watashi}
+                src={profile}
                 alt="watashi"
                 className="h-10 w-10 rounded-full"
               />
