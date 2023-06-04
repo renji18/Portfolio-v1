@@ -91,7 +91,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               </button>
             )}
           </div>
-          <ul className="flex z-[5000000] flex-col gap-10">
+          <ul className="flex z-[5000000] bg-black flex-col gap-10">
             {ulElements.map((item, index) => (
               <a key={index} href={item.route}>
                 <li

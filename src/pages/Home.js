@@ -5,7 +5,7 @@ import AllProjects from "../components/AllProjects";
 import Contact from "../components/Contact";
 import Experience from "../components/Experience";
 
-const Home = ({menuOpen}) => {
+const Home = ({ menuOpen }) => {
   return (
     <>
       <Hero />
