@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
 import Footer from "./components/Footer";
-import EditPortfolio from "./pages/EditPortfolio";
+import Admin from "./pages/Admin";
 import ProjectDetails from "./pages/ProjectDetails";
 
 function App() {
@@ -21,11 +21,11 @@ function App() {
         setActiveMenu={setActiveMenu}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/project-details/:ID" element={<ProjectDetails />} />
-        <Route path="/admin" element={<EditPortfolio />} />
+        <Route path="/" element={<Home menuOpen={menuOpen} />} />
+        <Route path="/project-details/:ID" element={<ProjectDetails menuOpen={menuOpen} />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
-      <Footer />
+      <Footer menuOpen={menuOpen} />
     </Router>
   );
 }

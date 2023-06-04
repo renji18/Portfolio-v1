@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProjectItem from "../ProjectItem";
 
-const AllProjectsImagePart = ({ item }) => {
+const AllProjectsImagePart = ({ item, menuOpen }) => {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
       key={item[0]}
-      className="shadow-[#64ffda] cursor-pointer relative md:w-3/5 rounded-[15px] shadow"
+      className={`shadow-[#64ffda] cursor-pointer relative md:w-3/5 rounded-[15px] shadow z-[${
+        menuOpen.menuOpen ? -1 : 0
+      }]`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => {

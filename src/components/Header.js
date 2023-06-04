@@ -18,7 +18,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   const ulElements = [
     { title: "About", route: "aboutMe" },
     { title: "Experience", route: "experience" },
-    { title: "Work", route: "projects" },
+    { title: "Projects", route: "projects" },
     { title: "Contact", route: "contact" },
   ];
 

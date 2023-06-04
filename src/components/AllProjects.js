@@ -5,7 +5,7 @@ import AllProjectsNamePart from "./allProjectsStuff/AllProjectsNamePart";
 import AllProjectsNamePartV2 from "./allProjectsStuff/AllProjectsNamePartV2";
 import AllProjectsNamePartV3 from "./allProjectsStuff/AllProjectsNamePartV3";
 
-const AllProjects = () => {
+const AllProjects = (menuOpen) => {
   const [projectData, setProjectData] = useState([]);
 
   useEffect(() => {
@@ -30,13 +30,13 @@ const AllProjects = () => {
             <div key={index} className="my-[100px] flex flex-col md:flex-row">
               {index % 2 === 0 ? (
                 <>
-                  <AllProjectsImagePart item={item} />
+                  <AllProjectsImagePart menuOpen={menuOpen} item={item} />
                   <AllProjectsNamePart item={item} />
                 </>
               ) : (
                 <>
                   <AllProjectsNamePartV2 item={item} />
-                  <AllProjectsImagePart item={item} />
+                  <AllProjectsImagePart menuOpen={menuOpen} item={item} />
                   <AllProjectsNamePartV3 item={item} />
                 </>
               )}

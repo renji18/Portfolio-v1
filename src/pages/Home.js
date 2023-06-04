@@ -5,13 +5,13 @@ import AllProjects from "../components/AllProjects";
 import Contact from "../components/Contact";
 import Experience from "../components/Experience";
 
-const Home = () => {
+const Home = ({menuOpen}) => {
   return (
     <>
       <Hero />
       <AboutMe />
       {/* <Experience /> */}
-      <AllProjects />
+      <AllProjects menuOpen={menuOpen} />
       <Contact />
     </>
   );

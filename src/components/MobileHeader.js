@@ -21,31 +21,31 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const ulElements = [
     { title: "About", route: "#aboutMe" },
     { title: "Experience", route: "#experience" },
-    { title: "Work", route: "#projects" },
+    { title: "Projects", route: "#projects" },
     { title: "Contact", route: "#contact" },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollData((prevState) => {
-        return {
-          y: window.scrollY,
-          lastY: prevState.y,
-        };
-      });
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrollData((prevState) => {
+  //       return {
+  //         y: window.scrollY,
+  //         lastY: prevState.y,
+  //       };
+  //     });
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-  useEffect(() => {
-    if (scrollData.y > 100 && scrollData.lastY < scrollData.y) {
-      setMenuOpen(false);
-      document.getElementById("mobileHeader").classList.add("hideNav");
-    } else {
-      document.getElementById("mobileHeader").classList.remove("hideNav");
-    }
-  }, [scrollData, setMenuOpen]);
+  // useEffect(() => {
+  //   if (scrollData.y > 100 && scrollData.lastY < scrollData.y) {
+  //     setMenuOpen(false);
+  //     document.getElementById("mobileHeader").classList.add("hideNav");
+  //   } else {
+  //     document.getElementById("mobileHeader").classList.remove("hideNav");
+  //   }
+  // }, [scrollData, setMenuOpen]);
 
   return (
     <div
@@ -77,7 +77,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
         </div>
       </div>
       {menuOpen && (
-        <div className="fixed z-[50000000] w-full h-full bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
+        <div className="fixed z-[5000000] w-full h-full bg-[#0a192f] top-0 grid justify-center items-center right-0 bottom-0">
           <div className="absolute z-50 text-[#64ffda] scale-150 top-7 right-7">
             {menuOpen ? (
               <button onClick={() => setMenuOpen(false)}>
@@ -89,12 +89,12 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               </button>
             )}
           </div>
-          <ul className="flex flex-col gap-10">
+          <ul className="flex z-[5000000] bg-[#0a192f] flex-col gap-10">
             {ulElements.map((item, index) => (
               <a key={index} href={item.route}>
                 <li
                   key={index}
-                  className="text-[#64ffda]"
+                  className="text-[#64ffda] z-[5000000]"
                   onClick={() => {
                     if (location.pathname !== "/") return navigate("/");
                     setActiveMenu(item.title);
@@ -104,7 +104,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                   0{index + 1}.{" "}
                   <span
                     style={{ color: activeMenu === item.title && "#64ffda" }}
-                    className="text-white"
+                    className="text-white z-[5000000]"
                   >
                     {item.title}
                   </span>
@@ -112,7 +112,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
               </a>
             ))}
             <Link target="_blank" to={resumeLink}>
-              <div className="text-center py-4 rounded-lg border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
+              <div className="text-center z-[5000000] py-4 rounded-lg border-[#64ffda] border hover:bg-[#64ffda] hover:text-[#0a192f] hover:font-semibold hover:font-serif">
                 Resume
               </div>
             </Link>
