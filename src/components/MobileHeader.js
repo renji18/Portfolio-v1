@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { Link, useNavigate, useLocation } from "react-router-dom"
+import { Link as ScrollLink } from "react-scroll"
+import MenuIcon from "@mui/icons-material/Menu"
+import MenuOpenIcon from "@mui/icons-material/MenuOpen"
 // import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 
 const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
-  const [resumeLink, setResumeLink] = useState(null);
+  const [resumeLink, setResumeLink] = useState(null)
   const [profile, setProfile] = useState(null)
 
-  const { portfolio } = useSelector((state) => state?.portfolioData);
+  const { portfolio } = useSelector((state) => state?.portfolioData)
 
   useEffect(() => {
-    setResumeLink(portfolio?.footer?.right[3].link);
+    setResumeLink(portfolio?.footer?.right[3].link)
     setProfile(portfolio?.profilePic)
-  }, [portfolio]);
+  }, [portfolio])
 
   // const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
   const ulElements = [
     { title: "About", route: "#aboutMe" },
     { title: "Experience", route: "#experience" },
     { title: "Projects", route: "#projects" },
     { title: "Contact", route: "#contact" },
-  ];
+  ]
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -98,15 +98,15 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                   key={index}
                   className="z-[5000000] text-white"
                   onClick={() => {
-                    if (location.pathname !== "/") return navigate("/");
-                    setActiveMenu(item.title);
-                    setMenuOpen(false);
+                    if (location.pathname !== "/") return navigate("/")
+                    setActiveMenu(item.title)
+                    setMenuOpen(false)
                   }}
                 >
-                  0{index + 1}.{" "}
+                  {/* 0{index + 1}.{" "} */}
                   <span
                     style={{ color: activeMenu === item.title && "white" }}
-                    className="z-[5000000] text-[#00ffc3]"
+                    className="z-[5000000] ml-7 mr-2 text-[#00ffc3]"
                   >
                     {item.title}
                   </span>
@@ -122,7 +122,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default MobileHeader;
+export default MobileHeader
