@@ -19,15 +19,14 @@ const AllProjects = (menuOpen) => {
   }, []);
 
   return (
-    <div id="projects" className="py-20 px-5 h-full font-semibold">
-      <div className="flex flex-col py-10 items-center justify-evenly">
+    <div id="projects" className="pt-20 px-5 h-full font-semibold">
+      <div className="flex flex-col  items-center justify-evenly">
         <div className="customContainer px-7 sm:px-20 lg:px-0">
-          <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
-            <span className="text-[#00ffc3]">03.</span>
+          <div className="text-lg font-semibold sm:text-2xl">
             <h1 className="mb-10 w-full">Stuff That I've Created</h1>
           </div>
           {projectData.map((item, index) => (
-            <div key={index} className="my-[100px] flex flex-col md:flex-row">
+            <div key={index} className="my-20 flex flex-col md:flex-row">
               {index % 2 === 0 ? (
                 <>
                   <AllProjectsImagePart menuOpen={menuOpen} item={item} />

@@ -1,30 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link as ScrollLink } from "react-scroll"
 // import Watashi from "../assets/IMG-20230215-WA0007.jpg";
-import "react-tooltip/dist/react-tooltip.css";
+import "react-tooltip/dist/react-tooltip.css"
 
 const Header = ({ activeMenu, setActiveMenu }) => {
-  const navigate = useNavigate();
-  const [resumeLink, setResumeLink] = useState(null);
+  const navigate = useNavigate()
+  const [resumeLink, setResumeLink] = useState(null)
   const [profile, setProfile] = useState(null)
 
-  const { portfolio } = useSelector((state) => state?.portfolioData);
+  const location = useLocation()
+
+  const { portfolio } = useSelector((state) => state?.portfolioData)
 
   useEffect(() => {
-    setResumeLink(portfolio?.footer?.right[3].link);
-    setProfile(portfolio?.profilePic)
-  }, [portfolio]);
+    window.scrollTo(0, 0)
+  }, [location?.pathname])
 
-  const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
+  useEffect(() => {
+    setResumeLink(portfolio?.footer?.right[3].link)
+    setProfile(portfolio?.profilePic)
+  }, [portfolio])
+
+  const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 })
   const ulElements = [
     { title: "About", route: "aboutMe" },
     { title: "Experience", route: "experience" },
     { title: "Projects", route: "projects" },
     { title: "Contact", route: "contact" },
-    { title: "Edit", route: "/admin" },
-  ];
+    // { title: "Edit", route: "/admin" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,20 +38,20 @@ const Header = ({ activeMenu, setActiveMenu }) => {
         return {
           y: window.scrollY,
           lastY: prevState.y,
-        };
-      });
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+        }
+      })
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     if (scrollData.y > 100 && scrollData.lastY < scrollData.y) {
-      document.getElementById("header").classList.add("hideNav");
+      document.getElementById("header").classList.add("hideNav")
     } else {
-      document.getElementById("header").classList.remove("hideNav");
+      document.getElementById("header").classList.remove("hideNav")
     }
-  }, [scrollData]);
+  }, [scrollData])
 
   return (
     <div
@@ -76,8 +82,8 @@ const Header = ({ activeMenu, setActiveMenu }) => {
                 {/* <Link to="/"> */}
                 <li
                   onClick={() => {
-                    setActiveMenu(item.title);
-                    item.title === "Edit" ? navigate(item.route) : navigate("/");
+                    setActiveMenu(item.title)
+                    item.title === "Edit" ? navigate(item.route) : navigate("/")
                   }}
                   className="cursor-pointer relative"
                   style={{ color: activeMenu === item.title && "white" }}
@@ -87,9 +93,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
                     <span
                       style={{ fontFamily: "Fira" }}
                       className="text-white mr-1"
-                    >
-                      0{index + 1}.{" "}
-                    </span>{" "}
+                    ></span>{" "}
                     {item.title}
                   </span>
                 </li>
@@ -104,7 +108,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

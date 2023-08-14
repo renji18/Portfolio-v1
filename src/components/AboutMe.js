@@ -18,8 +18,7 @@ const AboutMe = () => {
       className="py-10 justify-center pt-[88px] flex flex-col items-center"
     >
       <div className="customContainer px-7 sm:px-20 lg:px-0">
-        <div className="flex gap-2 text-lg font-semibold sm:text-2xl">
-          <span className="text-[#00ffc3]">01.</span>
+        <div className="text-lg font-semibold sm:text-2xl">
           <h1 className="lg:mb-10 w-full ">About Me</h1>
         </div>
         <div className="flex justify-center items-center">
