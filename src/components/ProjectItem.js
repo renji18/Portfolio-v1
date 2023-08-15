@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const ProjectItem = ({ posterImage }) => {
   return (
@@ -9,7 +9,7 @@ const ProjectItem = ({ posterImage }) => {
         alt="poster"
       />
     </div>
-  );
-};
+  )
+}
 
-export default ProjectItem;
+export default ProjectItem

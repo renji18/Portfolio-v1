@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import ProjectItem from "../ProjectItem";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import ProjectItem from "../ProjectItem"
 
 const AllProjectsImagePart = ({ item, menuOpen }) => {
-  const navigate = useNavigate();
-  const [hovered, setHovered] = useState(false);
-  const [isHidden, setIsHidden] = useState('')
+  const navigate = useNavigate()
+  const [hovered, setHovered] = useState(false)
+  const [isHidden, setIsHidden] = useState("")
 
   useEffect(() => {
-    console.log(menuOpen.menuOpen);
-    setIsHidden(menuOpen.menuOpen ? 'hidden': '')
-    console.log(isHidden);
-  }, [menuOpen, isHidden]);
+    console.log(menuOpen.menuOpen)
+    setIsHidden(menuOpen.menuOpen ? "hidden" : "")
+    console.log(isHidden)
+  }, [menuOpen, isHidden])
 
   return (
     <div
@@ -28,7 +28,7 @@ const AllProjectsImagePart = ({ item, menuOpen }) => {
             desc: item[1].projectDescription,
             link: item[1].githubLink,
           },
-        });
+        })
       }}
     >
       <ProjectItem
@@ -41,7 +41,7 @@ const AllProjectsImagePart = ({ item, menuOpen }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AllProjectsImagePart;
+export default AllProjectsImagePart

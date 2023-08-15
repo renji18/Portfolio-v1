@@ -1,5 +1,5 @@
-import React from "react";
-import LOADER from "../assets/loader.svg";
+import React from "react"
+import LOADER from "../assets/loader.svg"
 
 const Loader = () => {
   return (
@@ -10,7 +10,7 @@ const Loader = () => {
         className="w-[100px] h-[100px] object-contain"
       />
     </div>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader

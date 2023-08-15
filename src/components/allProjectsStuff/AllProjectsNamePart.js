@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import React from "react"
+import { Link } from "react-router-dom"
+import GitHubIcon from "@mui/icons-material/GitHub"
 
 const AllProjectsNamePart = ({ item }) => {
   return (
@@ -16,7 +16,7 @@ const AllProjectsNamePart = ({ item }) => {
         </button>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default AllProjectsNamePart;
+export default AllProjectsNamePart
