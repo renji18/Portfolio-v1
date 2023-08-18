@@ -5,7 +5,7 @@ const ProjectItem = ({ posterImage }) => {
     <div className="rounded-[15px] mx-4 sm:mx-0 p-5 cursor-pointer">
       <img
         className={`w-full h-full object-cover rounded-[15px]`}
-        src={`https://drive.google.com/uc?export=view&id=${posterImage}`}
+        src={posterImage}
         alt="poster"
       />
     </div>

@@ -106,7 +106,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
                   {/* 0{index + 1}.{" "} */}
                   <span
                     style={{ color: activeMenu === item.title && "white" }}
-                    className="z-[5000000] ml-7 mr-2 text-[#00ffc3]"
+                    className="z-[5000000] mx-7 text-[#00ffc3]"
                   >
                     {item.title}
                   </span>
