@@ -1,18 +1,20 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import React from "react"
+import { useLocation, Link } from "react-router-dom"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from "react-responsive-carousel"
 
 const ProjectDetails = ({ menuOpen }) => {
-  const { state } = useLocation();
-  const { name, posterImage, imageUrls, desc, link } = state;
+  const { state } = useLocation()
+  const { name, posterImage, imageUrls, desc, link } = state
+
+  console.log(imageUrls, "image urls")
 
   return (
     <div className={`p-5 `}>
       <div className="flex flex-col items-center md:flex-row">
         <img
           className={`md:w-1/2 h-full md:h-1/2 object-cover rounded-[15px]`}
-          src={`https://drive.google.com/uc?export=view&id=${posterImage}`}
+          src={posterImage}
           alt="poster"
         />
         <div className="text-center mt-10 md:mt-0 md:w-1/2 text-xl">
@@ -49,7 +51,7 @@ const ProjectDetails = ({ menuOpen }) => {
                 <img
                   key={url}
                   className={`w-full h-full object-cover rounded-[15px]`}
-                  src={`https://drive.google.com/uc?export=view&id=${url}`}
+                  src={url}
                   alt="poster"
                 />
               ))}
@@ -58,7 +60,7 @@ const ProjectDetails = ({ menuOpen }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectDetails;
+export default ProjectDetails

@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import axios from "axios";
-import poster from "../assets/wallpaperflare.com_wallpaper.jpg";
+import React, { useState } from "react"
+import axios from "axios"
+import poster from "../assets/wallpaperflare.com_wallpaper.jpg"
 
 const Contact = () => {
   const [thoughts, setThoughts] = useState({
     name: "",
     email: "",
     text: "",
-  });
+  })
 
   const settingThoughts = (e) => {
-    setThoughts({ ...thoughts, [e.target.name]: e.target.value });
-  };
+    setThoughts({ ...thoughts, [e.target.name]: e.target.value })
+  }
 
   const handleButtonClick = async () => {
-    const { name, email, text } = thoughts;
+    const { name, email, text } = thoughts
 
-    if (!name || !email || !text) return alert("Please fill all the details.");
+    if (!name || !email || !text) return alert("Please fill all the details.")
 
     const res = await axios.post(
       "https://portfolio-2cf75-default-rtdb.firebaseio.com/userThoughts.json",
       thoughts
-    );
+    )
 
     if (res.status === 200) {
-      alert("Successfully Sent Message");
+      alert("Successfully Sent Message")
       setThoughts({
         name: "",
         email: "",
         text: "",
-      });
+      })
     } else {
-      alert("An error occurred, try again!!!");
+      alert("An error occurred, try again!!!")
     }
-  };
+  }
 
   return (
     <div
@@ -90,7 +90,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

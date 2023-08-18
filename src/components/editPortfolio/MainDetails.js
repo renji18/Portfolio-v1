@@ -1,59 +1,59 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useSelector } from "react-redux"
 
 const MainDetails = () => {
-  const { portfolio } = useSelector((state) => state.portfolioData);
+  const { portfolio } = useSelector((state) => state.portfolioData)
 
   // individual datas from portfolio
-  const [heroData, setHeroData] = useState(null);
-  const [aboutMeData, setAboutMeData] = useState(null);
-  const [projectsData, setProjectsData] = useState(null);
-  const [footerData, setFooterData] = useState(null);
+  const [heroData, setHeroData] = useState(null)
+  const [aboutMeData, setAboutMeData] = useState(null)
+  const [projectsData, setProjectsData] = useState(null)
+  const [footerData, setFooterData] = useState(null)
 
   // shower and hider states for each content
-  const [showHeroData, setShowHeroData] = useState(false);
-  const [showAboutMeData, setShowAboutMeData] = useState(false);
+  const [showHeroData, setShowHeroData] = useState(false)
+  const [showAboutMeData, setShowAboutMeData] = useState(false)
 
   // setting values on load
   useEffect(() => {
-    setHeroData(portfolio?.hero);
-    setProjectsData(portfolio?.projects);
-    setFooterData(portfolio?.footer);
+    setHeroData(portfolio?.hero)
+    setProjectsData(portfolio?.projects)
+    setFooterData(portfolio?.footer)
     if (portfolio?.aboutMe) {
       // style='color: #00ffc3'
-      let manipulatedBoasting = [];
+      let manipulatedBoasting = []
       portfolio?.aboutMe?.boasting?.map((b) => {
-        let res1 = b.replace(/<span style='color: #00ffc3'>/g, "<");
-        let res2 = res1.replace(/<\/span>/g, ">");
-        manipulatedBoasting.push(res2);
-        return manipulatedBoasting;
-      });
-      setAboutMeData({ ...portfolio?.aboutMe, boasting: manipulatedBoasting });
+        let res1 = b.replace(/<span style='color: #00ffc3'>/g, "<")
+        let res2 = res1.replace(/<\/span>/g, ">")
+        manipulatedBoasting.push(res2)
+        return manipulatedBoasting
+      })
+      setAboutMeData({ ...portfolio?.aboutMe, boasting: manipulatedBoasting })
     }
-  }, [portfolio]);
+  }, [portfolio])
 
   // data change controller
   const handleDataChange = (content, key, value) => {
     // console.log(content, key, value);
     if (content === "hero") {
-      setHeroData({ ...heroData, [key]: value });
+      setHeroData({ ...heroData, [key]: value })
     } else if (content === "boasting") {
       setAboutMeData({
         ...aboutMeData,
         boasting: aboutMeData?.boasting?.map((b, index) => {
-          return index === key ? value : b;
+          return index === key ? value : b
         }),
-      });
+      })
     }
-  };
+  }
 
   const handleAddSkill = () => {
-    let inputVal = document.getElementById("skillAddingInput").value;
+    let inputVal = document.getElementById("skillAddingInput").value
     setAboutMeData({
       ...aboutMeData,
       skills: [...aboutMeData?.skills, inputVal],
-    });
-  };
+    })
+  }
 
   // CONTENT UTILITIES:
   // Hero content mapping helper
@@ -64,20 +64,20 @@ const MainDetails = () => {
     { title: "Intro", key: "intro" },
     { title: "Currently Working At", key: "companyName" },
     { title: "Company's Website", key: "companyLink" },
-  ];
+  ]
 
   // hero textarea auto height controller
-  const heroTextareaRef = useRef(null);
-  const MIN_TEXTAREA_HEIGHT = 0;
+  const heroTextareaRef = useRef(null)
+  const MIN_TEXTAREA_HEIGHT = 0
   useLayoutEffect(() => {
     if (heroData && heroTextareaRef.current) {
-      heroTextareaRef.current.style.height = "inherit";
+      heroTextareaRef.current.style.height = "inherit"
       heroTextareaRef.current.style.height = `${Math.max(
         heroTextareaRef.current.scrollHeight,
         MIN_TEXTAREA_HEIGHT
-      )}px`;
+      )}px`
     }
-  }, [heroData]);
+  }, [heroData])
 
   return (
     <>
@@ -154,7 +154,7 @@ const MainDetails = () => {
                     }
                     className="md:w-full w-max max-h-40 mt-5 pr-10 pl-[32px] text-[#FB2576] bg-black underline outline-none text-sm md:text-base"
                   />
-                );
+                )
               })}
               <label
                 className="w-full text-lg md:text-xl"
@@ -187,9 +187,9 @@ const MainDetails = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default MainDetails;
+export default MainDetails
 
 // firebase(devicon-firebase-plain colored), python(devicon-pyton-plain), c++(devicon-cplusplus-plain colored)

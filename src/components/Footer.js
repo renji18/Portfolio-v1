@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import EmailIcon from "@mui/icons-material/Email";
-import RingVolumeIcon from "@mui/icons-material/RingVolume";
-import BadgeIcon from "@mui/icons-material/Badge";
-import CodeIcon from "@mui/icons-material/Code";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import DescriptionIcon from "@mui/icons-material/Description";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import EmailIcon from "@mui/icons-material/Email"
+import RingVolumeIcon from "@mui/icons-material/RingVolume"
+import BadgeIcon from "@mui/icons-material/Badge"
+import CodeIcon from "@mui/icons-material/Code"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import DescriptionIcon from "@mui/icons-material/Description"
+import { Link } from "react-router-dom"
 
 const Footer = ({ menuOpen }) => {
-  const [footerData, setFooterData] = useState(null);
+  const [footerData, setFooterData] = useState(null)
 
-  const { portfolio } = useSelector((state) => state?.portfolioData);
+  const { portfolio } = useSelector((state) => state?.portfolioData)
 
   useEffect(() => {
-    setFooterData(portfolio?.footer);
-  }, [portfolio]);
+    setFooterData(portfolio?.footer)
+  }, [portfolio])
 
   const leftPart = [
     { icon: <BadgeIcon />, value: footerData?.left?.name },
     { icon: <EmailIcon />, value: footerData?.left?.email },
     { icon: <RingVolumeIcon />, value: footerData?.left?.number },
     { icon: <CodeIcon />, value: footerData?.left?.designation },
-  ];
+  ]
 
   const rightPart = [
     <GitHubIcon />,
     <InstagramIcon />,
     <LinkedInIcon />,
     <DescriptionIcon />,
-  ];
+  ]
 
   return (
     <>
@@ -39,10 +39,7 @@ const Footer = ({ menuOpen }) => {
         <div className="text-sm text-center py-3 flex justify-between px-3 sm:px-5 lg:px-10">
           <div>
             {leftPart?.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-1 space-y-3"
-              >
+              <div key={index} className="flex items-center gap-1 space-y-3">
                 {item?.icon}
                 <p
                   className="text-[#b4bacc]"
@@ -71,7 +68,7 @@ const Footer = ({ menuOpen }) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

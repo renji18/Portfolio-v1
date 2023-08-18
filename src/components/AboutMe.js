@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 
 const AboutMe = () => {
-  const [aboutData, setAboutData] = useState(null);
+  const [aboutData, setAboutData] = useState(null)
   const [respect, setRespect] = useState(null)
 
-  const { portfolio } = useSelector((state) => state?.portfolioData);
+  const { portfolio } = useSelector((state) => state?.portfolioData)
 
   useEffect(() => {
-    setAboutData(portfolio?.aboutMe);
+    setAboutData(portfolio?.aboutMe)
     setRespect(portfolio?.aboutMe?.respectLink)
-  }, [portfolio]);
+  }, [portfolio])
 
   return (
     <div
       id="aboutMe"
-      className="py-10 justify-center pt-[88px] flex flex-col items-center"
+      className="py-10 min-h-screen justify-center pt-[88px] flex flex-col items-center"
     >
       <div className="customContainer px-7 sm:px-20 lg:px-0">
         <div className="text-lg font-semibold sm:text-2xl">
-          <h1 className="lg:mb-10 w-full ">About Me</h1>
+          <h1 className="w-full">About Me</h1>
         </div>
         <div className="flex justify-center items-center">
           <div className="hidden lg:block">
@@ -46,7 +46,7 @@ const AboutMe = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutMe;
+export default AboutMe
