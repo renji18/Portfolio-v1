@@ -1,12 +1,21 @@
-import { put } from "redux-saga/effects";
-import * as services from './services.js'
+import { put } from "redux-saga/effects"
+import * as services from "./services.js"
 
 // update Portfolio Data
-export function* updatePortfolioSagaCall(action){
+export function* updatePortfolioSagaCall(action) {
   try {
     yield services.updatePortfolioSagaAsyncHandler(action.data)
   } catch (error) {
-    console.log(error, 'updatePortfolioSagaCall');
+    console.log(error, "updatePortfolioSagaCall")
+  }
+}
+
+// contact sending data
+export function* contactPortfolioSagaCall(action) {
+  try {
+    yield services.contactPortfolioSagaAsyncHandler(action?.data)
+  } catch (error) {
+    console.log(error, "contactPortfolioSagaCall")
   }
 }
 

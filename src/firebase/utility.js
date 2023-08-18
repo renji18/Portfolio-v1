@@ -8,11 +8,11 @@ import {
   setDoc,
   updateDoc,
   where,
-} from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import imageCompression from "browser-image-compression";
-import { firestore, storage } from "./config";
-import { getPortfolioDataAction, toggleMainLoader } from "../redux/actions";
+} from "firebase/firestore"
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import imageCompression from "browser-image-compression"
+import { firestore, storage } from "./config"
+import { getPortfolioDataAction, toggleMainLoader } from "../redux/actions"
 
 // returns url for a provided image file
 export async function handleUploadImage(file, location) {
@@ -23,21 +23,19 @@ export async function handleUploadImage(file, location) {
       useWebWorker: true,
       maxIteration: 10,
       fileType: "image/*",
-    });
-    const imgRef = ref(storage, location);
-    const upload = await uploadBytes(imgRef, compressedImage);
-    const res = await getDownloadURL(upload.ref);
-    return res;
+    })
+    const imgRef = ref(storage, location)
+    const upload = await uploadBytes(imgRef, compressedImage)
+    const res = await getDownloadURL(upload.ref)
+    return res
   } catch (error) {
-    console.log(error, "error in handleUploadImage");
+    console.log(error, "error in handleUploadImage")
   }
 }
 
 // update user data
 export async function handleSaveUserData(data) {
   try {
-    console.log(data);
-    
     // const data = {
     //   hero: {
     //     anyong: "Hi, my name is",
@@ -166,28 +164,49 @@ export async function handleSaveUserData(data) {
     //   },
     // };
 
-    const profileImg = await handleUploadImage(data, "/portfolio/user/adminPage/newProject");
+    const profileImg = await handleUploadImage(
+      data,
+      "/portfolio/user/adminPage/newProject"
+    )
 
-    const dataRef = doc(firestore, "portfolioData", "renji_riverstone");
+    const dataRef = doc(firestore, "portfolioData", "renji_riverstone")
 
     await updateDoc(dataRef, {
       salute: profileImg,
-    });
-    const docSnap = await getDoc(dataRef);
-    console.log(docSnap.data());
+    })
+    const docSnap = await getDoc(dataRef)
+    console.log(docSnap.data())
   } catch (error) {
-    console.log(error, "Error in handleSaveUserData");
+    console.log(error, "Error in handleSaveUserData")
   }
 }
 
 // get user data
 export async function handleGetPortfolioData(dispatch) {
   try {
-    const docRef = doc(firestore, "portfolioData", "renji_riverstone");
-    const docSnap = await getDoc(docRef);
-    dispatch(getPortfolioDataAction(docSnap.data()));
-    dispatch(toggleMainLoader(false));
+    const docRef = doc(firestore, "portfolioData", "renji_riverstone")
+    const docSnap = await getDoc(docRef)
+    dispatch(getPortfolioDataAction(docSnap.data()))
+    dispatch(toggleMainLoader(false))
   } catch (error) {
-    console.log(error, "handleGetPortfolioData");
+    console.log(error, "handleGetPortfolioData")
+  }
+}
+
+// write thoughts in contacts
+export async function handleContactPortfolio(data) {
+  try {
+    const portfolioRef = doc(firestore, "portfolioData", "renji_riverstone")
+    const portfolioSnap = await getDoc(portfolioRef)
+    const portfolioData = portfolioSnap.data()
+
+    const contactData = portfolioData?.contact
+
+    await updateDoc(portfolioRef, {
+      contact: [...contactData, data],
+    })
+    return
+  } catch (error) {
+    console.log(error, "contactFunction")
   }
 }

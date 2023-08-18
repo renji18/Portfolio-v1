@@ -4,6 +4,7 @@ import AboutMe from "../components/AboutMe"
 import AllProjects from "../components/AllProjects"
 import Contact from "../components/Contact"
 import Experience from "../components/Experience"
+import Testimonials from "../components/Testimonials"
 
 const Home = ({ menuOpen }) => {
   return (
@@ -13,6 +14,7 @@ const Home = ({ menuOpen }) => {
       {/* <Experience /> */}
       <AllProjects menuOpen={menuOpen} />
       <Contact />
+      {/* <Testimonials /> */}
     </>
   )
 }
