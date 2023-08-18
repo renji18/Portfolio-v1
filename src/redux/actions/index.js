@@ -1,3 +1,7 @@
-export { updatePortfolioAction, getPortfolioDataAction } from "./userActions";
+export {
+  updatePortfolioAction,
+  getPortfolioDataAction,
+  contactAction,
+} from "./userActions"
 
-export { toggleMainLoader } from "./miscellaneous";
+export { toggleMainLoader } from "./miscellaneous"

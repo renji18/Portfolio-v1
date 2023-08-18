@@ -1,8 +1,10 @@
 import React, { useState } from "react"
-import axios from "axios"
 import poster from "../assets/wallpaperflare.com_wallpaper.jpg"
+import { useFirebase } from "../firebase"
 
 const Contact = () => {
+  const firebase = useFirebase()
+
   const [thoughts, setThoughts] = useState({
     name: "",
     email: "",
@@ -18,21 +20,15 @@ const Contact = () => {
 
     if (!name || !email || !text) return alert("Please fill all the details.")
 
-    const res = await axios.post(
-      "https://portfolio-2cf75-default-rtdb.firebaseio.com/userThoughts.json",
-      thoughts
-    )
+    firebase.handleContact({ name, email, thoughts: text })
 
-    if (res.status === 200) {
-      alert("Successfully Sent Message")
-      setThoughts({
-        name: "",
-        email: "",
-        text: "",
-      })
-    } else {
-      alert("An error occurred, try again!!!")
-    }
+    setThoughts({
+      name: "",
+      email: "",
+      text: "",
+    })
+
+    alert("Thanks for sharing your thoughts")
   }
 
   return (

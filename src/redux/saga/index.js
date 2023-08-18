@@ -7,8 +7,8 @@ export default function* mySaga() {
     actionTypes.UPDATE_USER_DATA,
     userMiddleware.updatePortfolioSagaCall
   );
-  // yield takeLatest(
-  //   actionTypes.GET_USER_DATA,
-  //   userMiddleware.getPortfolioDataSagaCall
-  // );
+  yield takeLatest(
+    actionTypes.CONTACT_US,
+    userMiddleware.contactPortfolioSagaCall
+  );
 }
