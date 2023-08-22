@@ -22,7 +22,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const location = useLocation()
   const ulElements = [
     { title: "About", route: "#aboutMe" },
-    // { title: "Experience", route: "#experience" },
+    { title: "Experience", route: "#experience" },
     { title: "Projects", route: "#projects" },
     { title: "Contact", route: "#contact" },
   ]
