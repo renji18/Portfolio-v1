@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import MobileHeader from "./components/MobileHeader";
-import Footer from "./components/Footer";
-import Admin from "./pages/Admin";
-import ProjectDetails from "./pages/ProjectDetails";
-import Loader from "./components/Loader";
-import Editor from "./components/editPortfolio/Editor";
+import React, { useState } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { useSelector } from "react-redux"
+import Home from "./pages/Home"
+import Header from "./components/Header"
+import MobileHeader from "./components/MobileHeader"
+import Footer from "./components/Footer"
+import Admin from "./pages/Admin"
+import ProjectDetails from "./pages/ProjectDetails"
+import Loader from "./components/Loader"
+import Editor from "./components/editPortfolio/Editor"
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("")
+  const [menuOpen, setMenuOpen] = useState(false)
 
-
-  const { siteLoader } = useSelector((state) => state.loader);
+  const { siteLoader } = useSelector((state) => state.loader)
 
   return (
     <Router>
@@ -40,7 +39,7 @@ function App() {
       </Routes>
       <Footer menuOpen={menuOpen} />
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

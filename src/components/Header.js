@@ -26,7 +26,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 })
   const ulElements = [
     { title: "About", route: "aboutMe" },
-    // { title: "Experience", route: "experience" },
+    { title: "Experience", route: "experience" },
     { title: "Projects", route: "projects" },
     { title: "Contact", route: "contact" },
     // { title: "Edit", route: "/admin" },

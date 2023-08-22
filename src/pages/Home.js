@@ -11,7 +11,7 @@ const Home = ({ menuOpen }) => {
     <>
       <Hero />
       <AboutMe />
-      {/* <Experience /> */}
+      <Experience />
       <AllProjects menuOpen={menuOpen} />
       <Contact />
       {/* <Testimonials /> */}
