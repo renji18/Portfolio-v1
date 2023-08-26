@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import ExperienceOverlay from "./ExperienceOverlay"
 
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([])
@@ -46,14 +45,14 @@ const Experience = () => {
             </div>
           ))}
         </div>
-        <div>
+        {/* <div>
           {showOverlayData && (
             <ExperienceOverlay
               handleCloseOverlay={handleCloseOverlay}
               data={overlayData}
             />
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   )
