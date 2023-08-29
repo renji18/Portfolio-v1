@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useSelector } from "react-redux"
+import Header from "./components/Headers/Header"
+import MobileHeader from "./components/Headers/MobileHeader"
+import Loader from "./components/utils/Loader"
 import Home from "./pages/Home"
-import Header from "./components/Header"
-import MobileHeader from "./components/MobileHeader"
-import Footer from "./components/Footer"
-import Admin from "./pages/Admin"
+import Footer from "./components/Footer/Footer"
 import ProjectDetails from "./pages/ProjectDetails"
-import Loader from "./components/Loader"
-import Editor from "./components/editPortfolio/Editor"
+import Admin from "./pages/Admin"
+import Editor from "./components/EditPortfolio/Editor"
 
 function App() {
   const [activeMenu, setActiveMenu] = useState("")

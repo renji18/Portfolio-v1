@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import poster from "../assets/wallpaperflare.com_wallpaper.jpg"
-import { useFirebase } from "../firebase"
+import poster from "../../assets/wallpaperflare.com_wallpaper.jpg"
+import { useFirebase } from "../../firebase"
 
 const Contact = () => {
   const firebase = useFirebase()

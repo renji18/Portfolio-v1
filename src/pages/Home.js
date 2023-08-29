@@ -1,10 +1,10 @@
 import React from "react"
-import Hero from "../components/Hero"
-import AboutMe from "../components/AboutMe"
-import AllProjects from "../components/AllProjects"
-import Contact from "../components/Contact"
-import Experience from "../components/Experience"
-import Testimonials from "../components/Testimonials"
+import Hero from "../components/Landing/Hero"
+import AboutMe from "../components/AboutSection/AboutMe"
+import Experience from "../components/Experience/Experience"
+import AllProjects from "../components/Projects/AllProjects"
+import Contact from "../components/Contact/Contact"
+import Testimonials from "../components/Testimonials/Testimonials"
 
 const Home = ({ menuOpen }) => {
   return (
@@ -14,7 +14,7 @@ const Home = ({ menuOpen }) => {
       <Experience />
       <AllProjects menuOpen={menuOpen} />
       <Contact />
-      {/* <Testimonials /> */}
+      <Testimonials />
     </>
   )
 }

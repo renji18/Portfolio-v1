@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useLocation, Link } from "react-router-dom"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
-import Loader from "../components/Loader"
+import Loader from "../components/utils/Loader"
 
 const ProjectDetails = ({ menuOpen }) => {
   const { state } = useLocation()
