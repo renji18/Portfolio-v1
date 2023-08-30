@@ -13,7 +13,7 @@ const MobileHeader = ({ activeMenu, setActiveMenu, menuOpen, setMenuOpen }) => {
   const { portfolio } = useSelector((state) => state?.portfolioData)
 
   useEffect(() => {
-    setResumeLink(portfolio?.footer?.right[3].link)
+    setResumeLink(portfolio?.footer[3].link)
     setProfile(portfolio?.profilePic)
   }, [portfolio])
 

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import EmailIcon from "@mui/icons-material/Email"
-import RingVolumeIcon from "@mui/icons-material/RingVolume"
-import BadgeIcon from "@mui/icons-material/Badge"
-import CodeIcon from "@mui/icons-material/Code"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import DescriptionIcon from "@mui/icons-material/Description"
 import { Link } from "react-router-dom"
+import SingleItem from "./SingleItem"
 
 const Footer = ({ menuOpen }) => {
   const [footerData, setFooterData] = useState(null)
@@ -18,13 +15,6 @@ const Footer = ({ menuOpen }) => {
   useEffect(() => {
     setFooterData(portfolio?.footer)
   }, [portfolio])
-
-  const leftPart = [
-    { icon: <BadgeIcon />, value: footerData?.left?.name },
-    { icon: <EmailIcon />, value: footerData?.left?.email },
-    { icon: <RingVolumeIcon />, value: footerData?.left?.number },
-    { icon: <CodeIcon />, value: footerData?.left?.designation },
-  ]
 
   const rightPart = [
     <GitHubIcon />,
@@ -36,28 +26,29 @@ const Footer = ({ menuOpen }) => {
   return (
     <>
       {!menuOpen && (
-        <div className="text-sm text-center py-3 flex justify-between px-3 sm:px-5 lg:px-10">
-          <div>
-            {leftPart?.map((item, index) => (
-              <div key={index} className="flex items-center gap-1 space-y-3">
-                {item?.icon}
-                <p
-                  className="text-[#b4bacc]"
-                  style={{ transform: "translateY(-5px)" }}
-                >
-                  {item?.value}
-                </p>
-              </div>
-            ))}
+        <>
+          <div className="text-sm hidden md:fixed md:left-0 md:bottom-0 text-center py-3 md:flex px-3 sm:px-5 lg:px-10">
+            <div className="translate-x-[14px]">
+              {footerData?.map((r, index) => (
+                <SingleItem
+                  link={r?.link}
+                  title={r?.title}
+                  key={index}
+                  itemNumber={index}
+                  icon={rightPart[index]}
+                />
+              ))}
+            </div>
+            <div className="w-1 bg-[#00ffc3]"></div>
           </div>
-          <div>
-            {footerData?.right?.map((r, index) => (
+          <div className="text-sm md:hidden text-center py-5 px-5 sm:px-5 lg:px-10">
+            {footerData?.map((r, index) => (
               <Link key={index} target="_black" to={r.link}>
-                <div className="flex cursor-pointer items-center gap-1 space-y-3">
+                <div className="flex cursor-pointer items-center gap-2 space-y-4">
                   {rightPart[index]}
                   <p
                     className="text-[#b4bacc]"
-                    style={{ transform: "translateY(-5px)" }}
+                    style={{ transform: "translateY(-6px)" }}
                   >
                     {r.title}
                   </p>
@@ -65,7 +56,7 @@ const Footer = ({ menuOpen }) => {
               </Link>
             ))}
           </div>
-        </div>
+        </>
       )}
     </>
   )

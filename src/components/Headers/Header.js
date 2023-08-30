@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Link as ScrollLink } from "react-scroll"
-// import Watashi from "../assets/IMG-20230215-WA0007.jpg";
 import "react-tooltip/dist/react-tooltip.css"
 
 const Header = ({ activeMenu, setActiveMenu }) => {
@@ -19,7 +18,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   }, [location?.pathname])
 
   useEffect(() => {
-    setResumeLink(portfolio?.footer?.right[3].link)
+    setResumeLink(portfolio?.footer[3].link)
     setProfile(portfolio?.profilePic)
   }, [portfolio])
 
