@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link as ReactLink } from "react-router-dom"
 import { useSelector } from "react-redux"
+import Link from "./Link"
+import NoLink from "./NoLink"
 
 const Hero = () => {
   const [heroData, setHeroData] = useState(null)
@@ -33,21 +35,22 @@ const Hero = () => {
                   : heroData?.notWorkingTag,
               }}
             ></span>
-            <Link
-              target="_blank"
-              to={
-                heroData?.working
-                  ? heroData?.companyLink
-                  : heroData?.collegeLink
-              }
-              className="text-[#00ffc3] hover:underline cursor-pointer"
-            >
-              {`\t${
-                heroData?.working
-                  ? heroData?.companyName
-                  : heroData?.collegeName
-              }`}
-            </Link>
+            {heroData?.working ? (
+              heroData?.companyLink !== "" ? (
+                <Link
+                  name={heroData?.companyName}
+                  link={heroData?.companyLink}
+                />
+              ) : (
+                <NoLink
+                  name={heroData?.companyName}
+                  link={heroData?.companyLink}
+                />
+              )
+            ) : (
+              <Link name={heroData?.collegeName} link={heroData?.collegeLink} />
+            )}
+
           </div>
           <div className="md:w-1/2 hidden md:flex justify-center">
             <img src={hi} className="w-[228px] h-[228px]" alt="hi" />
