@@ -28,7 +28,7 @@ const Footer = ({ menuOpen }) => {
       {!menuOpen && (
         <>
           <div className="text-sm hidden md:fixed md:left-0 md:bottom-0 text-center py-3 md:flex px-3 sm:px-5 lg:px-10">
-            <div className="translate-x-[14px]">
+            <div className="translate-x-[14px] pb-20">
               {footerData?.map((r, index) => (
                 <SingleItem
                   link={r?.link}
