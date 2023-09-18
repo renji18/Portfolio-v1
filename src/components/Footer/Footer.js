@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import InstagramIcon from "@mui/icons-material/Instagram"
+import TwitterIcon from '@mui/icons-material/Twitter';
 import DescriptionIcon from "@mui/icons-material/Description"
 import { Link } from "react-router-dom"
 import SingleItem from "./SingleItem"
@@ -18,6 +19,7 @@ const Footer = ({ menuOpen }) => {
 
   const rightPart = [
     <GitHubIcon />,
+    <TwitterIcon />,
     <InstagramIcon />,
     <LinkedInIcon />,
     <DescriptionIcon />,
