@@ -12,7 +12,7 @@ const Testimonials = () => {
 
   return (
     <div>
-      <div>yo</div>
+      {/* <div>yo</div> */}
     </div>
   )
 }

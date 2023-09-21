@@ -18,7 +18,7 @@ const Header = ({ activeMenu, setActiveMenu }) => {
   }, [location?.pathname])
 
   useEffect(() => {
-    setResumeLink(portfolio?.footer[3].link)
+    setResumeLink(portfolio?.footer[4].link)
     setProfile(portfolio?.profilePic)
   }, [portfolio])
 
