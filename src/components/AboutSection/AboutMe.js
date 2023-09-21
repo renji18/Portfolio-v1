@@ -38,7 +38,7 @@ const AboutMe = () => {
         <div className="flex lg:justify-end text-lg md:text-2xl flex-col sm:flex-row items-center gap-2">
           <p className="text-[#00ffc3]">Stack</p>
           <p className="hidden sm:block">|</p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap justify-center items-center gap-3">
             {aboutData?.skills?.map((i, index) => (
               <i key={index} className={i}></i>
             ))}
