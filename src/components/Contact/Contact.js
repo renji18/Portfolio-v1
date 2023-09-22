@@ -41,10 +41,10 @@ const Contact = () => {
       </h1>
       <div className="pb-10">
         <div className="container lg:flex justify-center items-center mx-auto">
-          <div className="w-full hidden lg:block lg:w-1/2">
+          <div className="w-full hidden ">
             <img src={poster} className="w-full h-[500px]" alt="posterImage" />
           </div>
-          <div className="w-full lg:w-1/2 text-center lg:pt-9 lg:px-16">
+          <div className="w-full \ text-center lg:pt-9 lg:px-16">
             <form className="text-lg flex flex-col gap-5">
               <input
                 autoComplete="off"
