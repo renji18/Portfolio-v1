@@ -17,8 +17,16 @@ const Home = ({ menuOpen }) => {
       <Contact />
       <Testimonials />
       <p className="mb-20 text-center text-white">
-        UI and Layouting by
-        <Link target="_blank" className="text-[#00ffc3] hover:underline" to={"https://drive.google.com/file/d/1_fjveT3YknriO9CGlSo0QlET_bxz5lcV/view"}>@mittalSuthar</Link>
+        UI and Layouting by{" "}
+        <Link
+          target="_blank"
+          className="text-[#00ffc3] hover:underline"
+          to={
+            "https://drive.google.com/file/d/1_fjveT3YknriO9CGlSo0QlET_bxz5lcV/view"
+          }
+        >
+          @mittalSuthar
+        </Link>
       </p>
     </>
   )

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import axios from "axios"
 import AllProjectsImagePart from "./allProjectsStuff/AllProjectsImagePart"
 import AllProjectsNamePart from "./allProjectsStuff/AllProjectsNamePart"
 import AllProjectsNamePartV2 from "./allProjectsStuff/AllProjectsNamePartV2"

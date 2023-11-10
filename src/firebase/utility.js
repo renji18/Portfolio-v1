@@ -34,21 +34,14 @@ export async function handleUploadImage(file, location) {
 }
 
 // update user data
-export async function handleSaveUserData(data) {
+export async function handleSaveUserData(dispatch, property, data) {
   try {
-
-    const profileImg = await handleUploadImage(
-      data,
-      "/portfolio/user/adminPage/newProject"
-    )
-
-    const dataRef = doc(firestore, "portfolioData", "renji_riverstone")
-
-    await updateDoc(dataRef, {
-      salute: profileImg,
+    const portfolioRef = doc(firestore, "portfolioData", "renji_riverstone")
+    await updateDoc(portfolioRef, {
+      [property]: data,
     })
-    const docSnap = await getDoc(dataRef)
-    console.log(docSnap.data())
+    await handleGetPortfolioData(dispatch)
+    // alert("Portfolio Updated Successfully")
   } catch (error) {
     console.log(error, "Error in handleSaveUserData")
   }

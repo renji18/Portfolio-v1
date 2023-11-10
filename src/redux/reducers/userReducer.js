@@ -1,4 +1,4 @@
-import * as actionType from "../actions/actionTypes";
+import * as actionType from "../actions/actionTypes"
 
 export const portfolioData = (state = {}, action) => {
   switch (action.type) {
@@ -6,8 +6,8 @@ export const portfolioData = (state = {}, action) => {
       return {
         ...state,
         portfolio: action.data,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

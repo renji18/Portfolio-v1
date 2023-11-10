@@ -4,7 +4,11 @@ import * as services from "./services.js"
 // update Portfolio Data
 export function* updatePortfolioSagaCall(action) {
   try {
-    yield services.updatePortfolioSagaAsyncHandler(action.data)
+    yield services.updatePortfolioSagaAsyncHandler(
+      action?.dispatch,
+      action?.property,
+      action?.data
+    )
   } catch (error) {
     console.log(error, "updatePortfolioSagaCall")
   }
