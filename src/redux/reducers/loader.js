@@ -1,8 +1,8 @@
-import * as actionType from "../actions/actionTypes";
+import * as actionType from "../actions/actionTypes"
 
 const initialState = {
   siteLoader: true,
-};
+}
 
 const loader = (state = initialState, { type, data }) => {
   switch (type) {
@@ -10,10 +10,10 @@ const loader = (state = initialState, { type, data }) => {
       return {
         ...state,
         siteLoader: data,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default loader;
+export default loader

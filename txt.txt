@@ -1,0 +1,30 @@
+The data that can be edited
+
+HOME: 
+      Profile Pic
+      HERO => anyong(the introductor)
+              companyLink(Currently working company link)
+              companyName(Currently working company name)
+              intro(The main info)
+              notWorkingTag
+              tag(the tagline)
+              working(boolean, to show if working or not)
+              workngTag
+      ABOUT_ME => boasting(array of paragraphs)
+                  skills
+      EXPERIENCE => [
+                      link(the company link)
+                      location
+                      position
+                      startedFrom
+                      workPlace
+                      workedTill
+                    ]
+      ALL_PROJECTS => [
+                        desc
+                        github
+                        images(array of links)
+                        name
+                        poster
+                      ]
+

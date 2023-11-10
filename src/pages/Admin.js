@@ -1,38 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useFirebase } from "../firebase";
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { useFirebase } from "../firebase"
 
 const Admin = () => {
-  const firebase = useFirebase();
-  const navigate = useNavigate();
-  const [adminLinks, setAdminLinks] = useState(null);
-  const { portfolio } = useSelector((state) => state.portfolioData);
+  const firebase = useFirebase()
+  const navigate = useNavigate()
+  const [pageControllerDetails, setPageControllerDetails] = useState([])
+  const { portfolio } = useSelector((state) => state.portfolioData)
 
   useEffect(() => {
-    setAdminLinks(portfolio?.admin);
-  }, [portfolio]);
-
-  const pageControllerDetails = [
-    {
-      title: "Edit Details",
-      path: "edit-details",
-      link: adminLinks?.editProfileImg,
-      desc: "Update Personal Details, Links, Profile etc.",
-    },
-    {
-      title: "Add New Project",
-      path: "add-new-project",
-      link: adminLinks?.newProjectImg,
-      desc: "You've worked hard, now its time to put it on display.",
-    },
-    {
-      title: "Edit Existing Projects",
-      path: "edit-existing-projects",
-      link: adminLinks?.editProjectImg,
-      desc: "Back to grinding!!!",
-    },
-  ];
+    setPageControllerDetails(portfolio?.admin)
+  }, [portfolio])
 
   // IMAGE UPLOADING PROTOTYPE
   // const [profileImg, setProfileImg] = useState(null);
@@ -49,8 +28,8 @@ const Admin = () => {
   //     <button onClick={handleSave}>upload</button>
 
   const handleEditorNavigate = (path) => {
-    navigate(`/admin/${path}`, {state: path});
-  };
+    navigate(`/admin/${path}`, { state: path })
+  }
 
   return (
     <div className="lg:flex py-[38px] justify-evenly items-center">
@@ -62,7 +41,7 @@ const Admin = () => {
         ></img>
       </div>
       <div className="flex px-10 items-center flex-col gap-5">
-        {pageControllerDetails.map((p, index) => (
+        {pageControllerDetails?.map((p, index) => (
           <div
             key={index}
             onClick={() => handleEditorNavigate(p?.path)}
@@ -77,7 +56,7 @@ const Admin = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Admin;
+export default Admin

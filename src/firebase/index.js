@@ -17,8 +17,8 @@ const FirebaseProvider = (props) => {
   }, [dispatch])
 
   // edit profile data
-  const handleSaveUserImage = async (data) => {
-    dispatch(updatePortfolioAction(data))
+  const handleSaveUserData = async (property, data) => {
+    dispatch(updatePortfolioAction(dispatch, property, data))
   }
 
   // contact
@@ -27,7 +27,7 @@ const FirebaseProvider = (props) => {
   }
 
   return (
-    <FirebaseContext.Provider value={{ handleSaveUserImage, handleContact }}>
+    <FirebaseContext.Provider value={{ handleSaveUserData, handleContact }}>
       {props.children}
     </FirebaseContext.Provider>
   )

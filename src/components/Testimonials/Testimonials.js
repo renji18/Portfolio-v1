@@ -10,11 +10,7 @@ const Testimonials = () => {
     setTestimonialData(contact)
   }, [contact])
 
-  return (
-    <div>
-      {/* <div>yo</div> */}
-    </div>
-  )
+  return <div>{/* <div>yo</div> */}</div>
 }
 
 export default Testimonials

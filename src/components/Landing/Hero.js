@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Link as ReactLink } from "react-router-dom"
 import { useSelector } from "react-redux"
 import Link from "./Link"
 import NoLink from "./NoLink"
@@ -50,7 +49,6 @@ const Hero = () => {
             ) : (
               <Link name={heroData?.collegeName} link={heroData?.collegeLink} />
             )}
-
           </div>
           <div className="md:w-1/2 hidden md:flex justify-center">
             <img src={hi} className="w-[228px] h-[228px]" alt="hi" />

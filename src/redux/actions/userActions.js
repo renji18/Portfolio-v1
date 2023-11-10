@@ -1,8 +1,10 @@
 import * as actionType from "./actionTypes"
 
 // Update Portfolio Data
-export const updatePortfolioAction = (data) => ({
+export const updatePortfolioAction = (dispatch, property, data) => ({
   type: actionType.UPDATE_USER_DATA,
+  dispatch,
+  property,
   data,
 })
 

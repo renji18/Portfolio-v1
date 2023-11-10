@@ -3,8 +3,12 @@ import {
   handleSaveUserData,
 } from "../../firebase/utility"
 
-export async function updatePortfolioSagaAsyncHandler(data) {
-  await handleSaveUserData(data)
+export async function updatePortfolioSagaAsyncHandler(
+  dispatch,
+  property,
+  data
+) {
+  await handleSaveUserData(dispatch, property, data)
 }
 
 export async function contactPortfolioSagaAsyncHandler(data) {
