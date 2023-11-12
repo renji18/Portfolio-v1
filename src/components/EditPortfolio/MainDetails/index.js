@@ -47,9 +47,9 @@ const MainDetails = () => {
           <Experience data={portfolioData?.experience} />
         ) : activeTab === "hero" ? (
           <Hero data={portfolioData?.hero} />
-        ) : (
+        ) : activeTab === "aboutMe" ? (
           <AboutMe data={portfolioData?.aboutMe} />
-        )}
+        ) : null}
       </div>
     </div>
   )

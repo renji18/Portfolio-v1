@@ -34,21 +34,21 @@ const Hero = ({ data }) => {
         <input
           className="w-full"
           type="text"
-          value={heroData?.anyong}
+          value={heroData ? heroData?.anyong : ""}
           onChange={(e) => handleChange("anyong", e.target.value)}
         />
         <p>{heroData?.name}</p>
         <input
           className="w-full"
           type="text"
-          value={heroData?.tag}
+          value={heroData ? heroData?.tag : ""}
           onChange={(e) => handleChange("tag", e.target.value)}
         />
         <hr />
         <textarea
           className="w-full"
           type="text"
-          value={heroData?.intro}
+          value={heroData ? heroData?.intro : ""}
           onChange={(e) => handleChange("intro", e.target.value)}
         />
         <div className="flex justify-center gap-20">
@@ -70,13 +70,13 @@ const Hero = ({ data }) => {
             <textarea
               className="w-full"
               type="text"
-              value={heroData?.workingTag}
+              value={heroData ? heroData?.workingTag : ""}
               onChange={(e) => handleChange("workingTag", e.target.value)}
             />
             <input
               className="w-full"
               type="text"
-              value={heroData?.companyName}
+              value={heroData ? heroData?.companyName : ""}
               onChange={(e) => handleChange("companyName", e.target.value)}
             />
           </div>
@@ -85,10 +85,10 @@ const Hero = ({ data }) => {
             <textarea
               className="w-full"
               type="text"
-              value={heroData?.notWorkingTag}
+              value={heroData ? heroData?.notWorkingTag : ""}
               onChange={(e) => handleChange("notWorkingTag", e.target.value)}
             />
-            <p>{heroData?.collegeName}</p>
+            <p>{heroData ? heroData?.collegeName : ""}</p>
           </div>
         )}
       </div>
