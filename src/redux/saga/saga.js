@@ -24,11 +24,10 @@ export function* contactPortfolioSagaCall(action) {
 }
 
 // get Portfolio Data
-// export function* getPortfolioDataSagaCall(action){
+// export function* getPortfolioDataSagaCall(action) {
 //   try {
-//     console.log(action);
-//     yield services.getPortfolioDataSagaAsyncHandler(action.dispatch)
+//     alert("Get portfolio called")
 //   } catch (error) {
-//     console.log(error, 'getPortfolioDataSagaCall');
+//     console.log(error, "getPortfolioDataSagaCall")
 //   }
 // }

@@ -14,6 +14,18 @@ import imageCompression from "browser-image-compression"
 import { firestore, storage } from "./config"
 import { getPortfolioDataAction, toggleMainLoader } from "../redux/actions"
 
+// get user data
+export async function handleGetPortfolioData(dispatch) {
+  try {
+    const docRef = doc(firestore, "portfolioData", "renji_riverstone")
+    const docSnap = await getDoc(docRef)
+    dispatch(getPortfolioDataAction(docSnap.data()))
+    dispatch(toggleMainLoader(false))
+  } catch (error) {
+    console.log(error, "handleGetPortfolioData")
+  }
+}
+
 // returns url for a provided image file
 export async function handleUploadImage(file, location) {
   try {
@@ -44,18 +56,6 @@ export async function handleSaveUserData(dispatch, property, data) {
     // alert("Portfolio Updated Successfully")
   } catch (error) {
     console.log(error, "Error in handleSaveUserData")
-  }
-}
-
-// get user data
-export async function handleGetPortfolioData(dispatch) {
-  try {
-    const docRef = doc(firestore, "portfolioData", "renji_riverstone")
-    const docSnap = await getDoc(docRef)
-    dispatch(getPortfolioDataAction(docSnap.data()))
-    dispatch(toggleMainLoader(false))
-  } catch (error) {
-    console.log(error, "handleGetPortfolioData")
   }
 }
 

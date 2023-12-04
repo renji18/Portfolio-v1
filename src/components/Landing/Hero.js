@@ -24,7 +24,7 @@ const Hero = () => {
           <p className="text-white">{heroData?.name}</p>
           <p className="mt-5 text-[#b4bacc]">{heroData?.tag}.</p>
         </div>
-        <div className="md:flex">
+        <div className="md:flex md:items-center">
           <div className="text-[#b4bacc] justify-center md:w-1/2 leading-7 lg:leading-9">
             <span>{heroData?.intro}</span>
             <span
