@@ -18,7 +18,7 @@ const MainDetails = () => {
     setPortfolioData({
       hero: portfolio?.hero,
       aboutMe: portfolio?.aboutMe,
-      experience: portfolio?.experience,
+      experience: portfolio?.experience?.data,
     })
   }, [portfolio])
 

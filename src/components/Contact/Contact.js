@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import poster from "../../assets/wallpaperflare.com_wallpaper.jpg"
 import { useFirebase } from "../../firebase"
 
 const Contact = () => {
@@ -41,9 +40,6 @@ const Contact = () => {
       </h1>
       <div className="pb-10">
         <div className="container lg:flex justify-center items-center mx-auto">
-          <div className="w-full hidden ">
-            <img src={poster} className="w-full h-[500px]" alt="posterImage" />
-          </div>
           <div className="w-full \ text-center lg:pt-9 lg:px-16">
             <form className="text-lg flex flex-col gap-5">
               <input

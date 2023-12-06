@@ -8,7 +8,7 @@ const Experience = () => {
   const { experience } = useSelector((state) => state?.portfolioData?.portfolio)
 
   useEffect(() => {
-    setExperienceData(experience)
+    setExperienceData(experience?.data)
   }, [experience])
 
   return (
@@ -20,15 +20,20 @@ const Experience = () => {
         <div className="text-lg font-semibold sm:text-2xl">
           <h1 className="w-full">My Experiences At</h1>
         </div>
-        <div className="mt-10 ml-5">
-          {experienceData?.map((e, key) => (
-            <SingleStep
-              key={key}
-              totalItems={experienceData?.length}
-              itemNumber={key}
-              data={e}
-            />
-          ))}
+        <div className="flex justify-center lg:justify-between items-center">
+          <div className="mt-10 lg:w-full ml-5">
+            {experienceData?.map((e, key) => (
+              <SingleStep
+                key={key}
+                totalItems={experienceData?.length}
+                itemNumber={key}
+                data={e}
+              />
+            ))}
+          </div>
+          <div className="hidden lg:block">
+            <img src={experience?.expImg} alt="experiences" />
+          </div>
         </div>
       </div>
     </div>
