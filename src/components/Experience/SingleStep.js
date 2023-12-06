@@ -5,8 +5,8 @@ const SingleStep = ({ data, totalItems, itemNumber }) => {
   return (
     <div className="flex gap-5">
       <div className="flex flex-col items-center">
-        <div className="h-6 w-5 rounded-full bg-[#00ffc3]"></div>
-        <div className="h-full w-1 bg-[#00ffc3]"></div>
+        <div className="h-6 w-5 rounded-full bg-[#00ffc3]" />
+        <div className="h-full w-1 bg-[#00ffc3]" />
       </div>
       <div
         className={`${

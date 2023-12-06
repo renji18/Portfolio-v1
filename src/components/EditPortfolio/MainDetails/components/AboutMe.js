@@ -50,7 +50,7 @@ const AboutMe = ({ data }) => {
     else {
       data = {
         indexRef: prevData?.length + 1,
-        skill: "Copy skill class name from (https://devicon.dev/)",
+        skill: "",
       }
     }
 
@@ -136,8 +136,8 @@ const AboutMe = ({ data }) => {
               <Droppable droppableId="droppable-1">
                 {(provided, _) => (
                   <div
-                    placeholder={provided.placeholder}
                     ref={provided.innerRef}
+                    className="flex flex-col gap-3"
                     {...provided.droppableProps}
                   >
                     {aboutData?.skills?.map((item, index) => (
@@ -162,32 +162,34 @@ const AboutMe = ({ data }) => {
                               onChange={(e) =>
                                 handleChange("skills", index, e.target.value)
                               }
+                              placeholder="Copy skill class name from (https://devicon.dev/)"
                               type="text"
                               value={item?.skill}
                               className="flex-1"
                             />
-                            <div className="flex justify-between gap-3">
-                              <button
-                                title="Delete skill"
-                                onClick={() => removeElement("skills", index)}
-                                className="text-xl bg-[#00ffc3] text-black p-1 rounded-full -top-4 -right-4 flex justify-center items-center "
-                              >
-                                <DeleteForeverIcon />
-                              </button>
-                            </div>
+                            <button
+                              title="Delete skill"
+                              onClick={() => removeElement("skills", index)}
+                              className="text-xl bg-[#00ffc3] text-black p-1 rounded-full -top-4 -right-4 flex justify-center items-center "
+                            >
+                              <DeleteForeverIcon />
+                            </button>
                           </div>
                         )}
                       </Draggable>
                     ))}
-                    <button
-                      title="Add new skill"
-                      onClick={() =>
-                        addNewElement("skills", aboutData?.skills?.length)
-                      }
-                      className="text-xl bg-[#00ffc3] text-black p-1 flex justify-center items-center rounded-full -top-4 -right-4"
-                    >
-                      <AddIcon />
-                    </button>
+                    <div className="flex justify-center mb-5 mt-10">
+                      <button
+                        title="Add new skill"
+                        onClick={() =>
+                          addNewElement("skills", aboutData?.skills?.length)
+                        }
+                        className="text-xl max-w-min bg-[#00ffc3] text-black p-1 flex justify-center items-center rounded-full -top-4 -right-4"
+                      >
+                        <AddIcon />
+                      </button>
+                    </div>
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>

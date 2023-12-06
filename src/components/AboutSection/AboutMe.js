@@ -31,7 +31,7 @@ const AboutMe = () => {
                 key={index}
                 dangerouslySetInnerHTML={{ __html: p }}
                 className="leading-7"
-              ></p>
+              />
             ))}
           </div>
         </div>
@@ -40,7 +40,11 @@ const AboutMe = () => {
           <p className="hidden sm:block">|</p>
           <div className="flex flex-wrap justify-center items-center gap-3">
             {aboutData?.skills?.map((i, index) => (
-              <i title={i?.split("-")[1]} key={index} className={i}></i>
+              <i
+                title={i?.split("-")[1]}
+                key={index}
+                className={`${i} cursor-pointer`}
+              />
             ))}
           </div>
         </div>

@@ -79,6 +79,12 @@ const Hero = ({ data }) => {
               value={heroData ? heroData?.companyName : ""}
               onChange={(e) => handleChange("companyName", e.target.value)}
             />
+            <input
+              className="w-full"
+              type="text"
+              value={heroData ? heroData?.companyLink : ""}
+              onChange={(e) => handleChange("companyLink", e.target.value)}
+            />
           </div>
         ) : (
           <div>
