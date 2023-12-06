@@ -13,7 +13,7 @@ const SingleStep = ({ data, totalItems, itemNumber }) => {
           itemNumber === totalItems - 1 ? "" : "pb-10"
         } space-y-3 -mt-1`}
       >
-        <div className="flex flex-col md:flex-row gap-1 md:gap-3 text-sm lg:text-lg">
+        <div className="flex flex-row gap-1 md:gap-3 text-sm lg:text-lg">
           <p className="text-white">{data?.position}</p>
           <Link className="hover:underline" to={data?.link} target="_blank">
             @{data?.workPlace}
